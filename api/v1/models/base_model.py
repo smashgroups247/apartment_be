@@ -29,20 +29,15 @@ class BaseTableModel(Base):
         return obj_dict
 
     @classmethod
-    def get_all(cls):
-        from api.db.database import get_db
-
-        db = Depends(get_db)
-        """ returns all instance of the class in the db
-        """
-        return db.query(cls).all()
+    async def get_all(cls, db):
+        from sqlalchemy.future import select
+        """ returns all instance of the class in the db """
+        result = await db.execute(select(cls))
+        return result.scalars().all()
 
     @classmethod
-    def get_by_id(cls, id):
-        from api.db.database import get_db
-
-        db = Depends(get_db)
-        """ returns a single object from the db
-        """
-        obj = db.query(cls).filter_by(id=id).first()
-        return obj
+    async def get_by_id(cls, db, id):
+        from sqlalchemy.future import select
+        """ returns a single object from the db """
+        result = await db.execute(select(cls).filter_by(id=id))
+        return result.scalars().first()

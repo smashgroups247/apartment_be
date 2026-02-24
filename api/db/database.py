@@ -1,9 +1,9 @@
 """The database module"""
 
-from sqlalchemy.orm import sessionmaker, scoped_session, declarative_base
-from sqlalchemy import create_engine
+from typing import AsyncGenerator
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.orm import declarative_base
 from api.utils.settings import settings, BASE_DIR
-
 
 DB_HOST = settings.DB_HOST
 DB_PORT = settings.DB_PORT
@@ -14,42 +14,41 @@ DB_TYPE = settings.DB_TYPE
 
 
 def get_db_engine(test_mode: bool = False):
-    DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
     if DB_TYPE == "sqlite" or test_mode:
-        BASE_PATH = f"sqlite:///{BASE_DIR}"
+        BASE_PATH = f"sqlite+aiosqlite:///{BASE_DIR}"
         DATABASE_URL = BASE_PATH + "/"
 
         if test_mode:
             DATABASE_URL = BASE_PATH + "test.db"
-
-            return create_engine(
-                DATABASE_URL, connect_args={"check_same_thread": False}
+            return create_async_engine(
+                DATABASE_URL, connect_args={"check_same_thread": False}, echo=False
             )
     elif DB_TYPE == "postgresql":
-        DATABASE_URL = (
-            f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-        )
+        DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
-    return create_engine(DATABASE_URL)
+    return create_async_engine(DATABASE_URL, echo=False)
 
 
 engine = get_db_engine()
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-db_session = scoped_session(SessionLocal)
+# Create standard async sessionmaker
+AsyncSessionLocal = async_sessionmaker(
+    bind=engine, class_=AsyncSession, expire_on_commit=False, autoflush=False
+)
 
 Base = declarative_base()
 
 
-def create_database():
-    return Base.metadata.create_all(bind=engine)
+async def create_database():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 
-def get_db():
-    db = db_session()
-    try:
-        yield db
-    finally:
-        db.close()
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
+    async with AsyncSessionLocal() as session:
+        try:
+            yield session
+        finally:
+            await session.close()

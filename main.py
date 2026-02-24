@@ -24,10 +24,13 @@ from api.utils.settings import settings
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    db = next(get_db())
+    # Initialize DB connection on startup if required
+    generator = get_db()
+    db = await anext(generator)
 
     yield
 
+    await generator.aclose()
 
 app = FastAPI(lifespan=lifespan, title="FastAPI Boilerplate", version="1.0.0")
 

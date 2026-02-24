@@ -2892,3 +2892,383 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2026-01-09 16:26:16,545 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/dashboard/summary HTTP/1.1" 200 - 0.024s
 2026-01-12 09:56:21,107 - INFO - main.py:101: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.061s
 2026-01-12 09:56:22,705 - INFO - main.py:101: 127.0.0.1 - "GET /favicon.ico HTTP/1.1" 404 - 0.002s
+2026-02-23 11:08:40,668 - INFO - main.py:101: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-02-23 11:08:41,003 - INFO - main.py:101: 127.0.0.1 - "GET /favicon.ico HTTP/1.1" 404 - 0.001s
+2026-02-23 11:08:44,088 - INFO - main.py:101: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-02-23 11:08:46,028 - INFO - main.py:101: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.003s
+2026-02-23 11:08:58,975 - INFO - main.py:162: RequestValidationError: /api/v1/auth/signin | [{'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'type': 'value_error'}]
+2026-02-23 11:08:58,975 - INFO - main.py:163: [ERROR] - An error occured | [{'type': 'value_error', 'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'input': 'stringstri', 'ctx': {'error': ValueError('Invalid phone number format')}}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'value_error', 'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'input': 'stringstri', 'ctx': {'error': ValueError('Invalid phone number format')}}] line 42
+2026-02-23 11:08:58,975 - INFO - main.py:101: 127.0.0.1 - "POST /api/v1/auth/signin HTTP/1.1" 422 - 0.003s
+2026-02-23 11:09:00,353 - INFO - main.py:162: RequestValidationError: /api/v1/auth/signin | [{'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'type': 'value_error'}]
+2026-02-23 11:09:00,353 - INFO - main.py:163: [ERROR] - An error occured | [{'type': 'value_error', 'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'input': 'stringstri', 'ctx': {'error': ValueError('Invalid phone number format')}}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'value_error', 'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'input': 'stringstri', 'ctx': {'error': ValueError('Invalid phone number format')}}] line 42
+2026-02-23 11:09:00,353 - INFO - main.py:101: 127.0.0.1 - "POST /api/v1/auth/signin HTTP/1.1" 422 - 0.001s
+2026-02-23 11:09:47,837 - INFO - main.py:162: RequestValidationError: /api/v1/auth/signin | [{'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'type': 'value_error'}]
+2026-02-23 11:09:47,838 - INFO - main.py:163: [ERROR] - An error occured | [{'type': 'value_error', 'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'input': '08179903027', 'ctx': {'error': ValueError('Invalid phone number format')}}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'value_error', 'loc': ('body', 'phone_number'), 'msg': 'Value error, Invalid phone number format', 'input': '08179903027', 'ctx': {'error': ValueError('Invalid phone number format')}}] line 42
+2026-02-23 11:09:47,839 - INFO - main.py:101: 127.0.0.1 - "POST /api/v1/auth/signin HTTP/1.1" 422 - 0.005s
+2026-02-23 11:09:54,780 - INFO - main.py:101: 127.0.0.1 - "POST /api/v1/auth/signin HTTP/1.1" 200 - 0.001s
+2026-02-23 11:52:27,086 - INFO - main.py:104: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-02-23 11:52:30,707 - INFO - main.py:104: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.001s
+2026-02-23 11:52:30,857 - INFO - main.py:104: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.012s
+2026-02-23 11:54:01,030 - INFO - main.py:206: Exception occured | /api/v1/auth/register | 500
+2026-02-23 11:54:01,030 - INFO - main.py:207: [ERROR] - An error occured | role "postgres" does not exist, <class 'asyncpg.exceptions.InvalidAuthorizationSpecificationError'> role "postgres" does not exist 164
+2026-02-23 11:54:37,351 - INFO - main.py:206: Exception occured | /api/v1/auth/register | 500
+2026-02-23 11:54:37,351 - INFO - main.py:207: [ERROR] - An error occured | role "postgres" does not exist, <class 'asyncpg.exceptions.InvalidAuthorizationSpecificationError'> role "postgres" does not exist 164
+2026-02-23 12:00:06,728 - INFO - main.py:206: Exception occured | /api/v1/auth/register | 500
+2026-02-23 12:00:06,728 - INFO - main.py:207: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "users" does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('john@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "users" does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('john@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-02-23 12:00:59,249 - INFO - main.py:206: Exception occured | /api/v1/auth/register | 500
+2026-02-23 12:00:59,250 - INFO - main.py:207: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "users" does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('john@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "users" does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('john@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-02-23 12:40:47,678 - INFO - auth.py:84: New user registered: john@example.com (id=0699c3cbfac97a678000e61221089ea8)
+2026-02-23 12:40:47,881 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/register HTTP/1.1" 201 - 0.423s
+2026-02-23 12:41:13,709 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-23 12:41:13,710 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-23 12:41:13,710 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.182s
+2026-02-23 12:41:27,798 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-23 12:41:27,798 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-23 12:41:27,799 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.193s
+2026-02-23 12:41:40,426 - INFO - auth.py:123: User logged in: john@example.com (id=0699c3cbfac97a678000e61221089ea8)
+2026-02-23 12:41:40,605 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.365s
+2026-02-23 16:48:48,228 - INFO - main.py:104: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.002s
+2026-02-23 16:48:48,479 - INFO - main.py:104: 127.0.0.1 - "GET /favicon.ico HTTP/1.1" 404 - 0.001s
+2026-02-23 16:48:52,080 - INFO - main.py:104: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.001s
+2026-02-23 16:48:53,441 - INFO - main.py:104: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.037s
+2026-02-23 16:52:53,998 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-23 16:52:53,998 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-23 16:52:53,999 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.208s
+2026-02-24 09:06:24,228 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 - 0.009s
+2026-02-24 09:06:25,204 - INFO - auth.py:84: New user registered: amaka@gmail.com (id=0699d5c0130a737280006cf638d01f18)
+2026-02-24 09:06:25,407 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/register HTTP/1.1" 201 - 0.937s
+2026-02-24 09:06:25,412 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 09:06:25,414 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:06:25,414 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:06:25,414 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.001s
+2026-02-24 09:09:54,730 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:09:54,731 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:09:54,731 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.002s
+2026-02-24 09:10:15,411 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:10:15,411 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:10:15,411 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.001s
+2026-02-24 09:14:30,104 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-02-24 09:14:30,115 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-24 09:14:30,115 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-24 09:14:30,116 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.007s
+2026-02-24 09:14:50,533 - INFO - auth.py:123: User logged in: john@example.com (id=0699c3cbfac97a678000e61221089ea8)
+2026-02-24 09:14:50,722 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.368s
+2026-02-24 09:14:50,726 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:14:50,726 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:14:50,727 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.000s
+2026-02-24 09:15:02,564 - INFO - auth.py:123: User logged in: john@example.com (id=0699c3cbfac97a678000e61221089ea8)
+2026-02-24 09:15:02,759 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.421s
+2026-02-24 09:15:02,763 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:15:02,763 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:15:02,763 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.000s
+2026-02-24 09:16:37,584 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:16:37,584 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:16:37,584 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.001s
+2026-02-24 09:17:10,485 - INFO - main.py:165: RequestValidationError: /api/v1/auth/login | [{'loc': ('body', 'login'), 'msg': 'Field required', 'type': 'missing'}]
+2026-02-24 09:17:10,485 - INFO - main.py:166: [ERROR] - An error occured | [{'type': 'missing', 'loc': ('body', 'login'), 'msg': 'Field required', 'input': {'email': 'john@example.com', 'password': 'Password123!'}}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'missing', 'loc': ('body', 'login'), 'msg': 'Field required', 'input': {'email': 'john@example.com', 'password': 'Password123!'}}] line 42
+2026-02-24 09:17:10,485 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 422 - 0.001s
+2026-02-24 09:17:51,125 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-24 09:17:51,126 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-24 09:17:51,126 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.179s
+2026-02-24 09:17:59,135 - INFO - auth.py:84: New user registered: test@example.com (id=0699d5eb72167a9c8000f89b28d1d1ac)
+2026-02-24 09:17:59,319 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/register HTTP/1.1" 201 - 0.370s
+2026-02-24 09:18:09,218 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 09:20:48,139 - INFO - auth.py:123: User logged in: john@example.com (id=0699c3cbfac97a678000e61221089ea8)
+2026-02-24 09:20:48,323 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.363s
+2026-02-24 09:20:48,328 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 09:20:48,329 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:20:48,329 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:20:48,329 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.000s
+2026-02-24 09:29:15,034 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-02-24 09:29:15,220 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-24 09:29:15,220 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-24 09:29:15,220 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.183s
+2026-02-24 09:29:21,850 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-24 09:29:21,850 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-24 09:29:21,850 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.184s
+2026-02-24 09:29:30,676 - INFO - auth.py:123: User logged in: amaka@gmail.com (id=0699d5c0130a737280006cf638d01f18)
+2026-02-24 09:29:30,854 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.369s
+2026-02-24 09:29:30,859 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:29:30,859 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:29:30,859 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.000s
+2026-02-24 09:41:52,586 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-02-24 09:41:52,587 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-02-24 09:41:52,588 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.204s
+2026-02-24 09:42:11,083 - INFO - auth.py:123: User logged in: john@example.com (id=0699c3cbfac97a678000e61221089ea8)
+2026-02-24 09:42:11,266 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.374s
+2026-02-24 09:42:58,573 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:42:58,573 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:42:58,574 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.001s
+2026-02-24 09:43:05,989 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 09:50:30,303 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.001s
+2026-02-24 09:50:30,520 - INFO - auth.py:123: User logged in: amaka@gmail.com (id=0699d5c0130a737280006cf638d01f18)
+2026-02-24 09:50:30,699 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.390s
+2026-02-24 09:50:30,704 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 09:50:30,705 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 09:50:30,705 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 09:50:30,705 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.000s
+2026-02-24 10:59:42,881 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 - 0.000s
+2026-02-24 10:59:43,130 - INFO - auth.py:84: New user registered: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-02-24 10:59:43,324 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/register HTTP/1.1" 201 - 0.441s
+2026-02-24 10:59:43,330 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 10:59:43,333 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 11:00:00,589 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-02-24 11:00:00,589 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:00,843 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:01,057 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.466s
+2026-02-24 11:00:01,060 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:01,268 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:01,714 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:01,899 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.308s
+2026-02-24 11:00:01,900 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.373s
+2026-02-24 11:00:02,086 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:02,287 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.383s
+2026-02-24 11:00:02,289 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.762s
+2026-02-24 11:00:02,291 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:05,505 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:05,870 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:06,067 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.749s
+2026-02-24 11:00:06,068 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.749s
+2026-02-24 11:00:06,070 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:06,072 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:07,241 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:07,606 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:07,807 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.751s
+2026-02-24 11:00:07,808 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.752s
+2026-02-24 11:00:07,810 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:07,812 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:17,812 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/logout HTTP/1.1" 200 - 0.000s
+2026-02-24 11:00:17,817 - INFO - auth.py:208: User logged out: id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:17,817 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 0.003s
+2026-02-24 11:00:23,994 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-02-24 11:00:24,175 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-02-24 11:00:24,356 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.360s
+2026-02-24 11:00:24,361 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:27,113 - INFO - auth.py:208: User logged out: id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:27,114 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 0.003s
+2026-02-24 11:00:48,453 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-02-24 11:00:48,631 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.369s
+2026-02-24 11:00:48,635 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:00:51,827 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:52,188 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:52,380 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.745s
+2026-02-24 11:00:52,381 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.744s
+2026-02-24 11:00:52,385 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 11:00:52,389 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.003s
+2026-02-24 11:00:57,786 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:58,148 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:00:58,337 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.765s
+2026-02-24 11:00:58,340 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.764s
+2026-02-24 11:00:58,343 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 11:00:58,348 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.003s
+2026-02-24 11:00:59,966 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:01:00,328 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:01:00,526 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.763s
+2026-02-24 11:01:00,530 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.766s
+2026-02-24 11:01:00,534 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.004s
+2026-02-24 11:01:00,541 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.005s
+2026-02-24 11:03:44,575 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:03:44,959 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:03:45,146 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.947s
+2026-02-24 11:03:45,147 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.947s
+2026-02-24 11:03:45,153 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:03:45,154 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:20:21,114 - INFO - main.py:104: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-02-24 11:20:26,415 - INFO - main.py:104: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-02-24 11:20:26,540 - INFO - main.py:104: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.024s
+2026-02-24 11:20:31,438 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 11:20:31,438 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 11:20:31,439 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.001s
+2026-02-24 11:20:40,683 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.004s
+2026-02-24 11:21:46,511 - INFO - main.py:138: HTTPException: /api/v1/auth/me | 403 | Not authenticated
+2026-02-24 11:21:46,512 - INFO - main.py:141: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-02-24 11:21:46,512 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 403 - 0.001s
+2026-02-24 11:24:53,701 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/logout HTTP/1.1" 200 - 0.003s
+2026-02-24 11:24:53,722 - INFO - auth.py:208: User logged out: id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:24:53,722 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 0.011s
+2026-02-24 11:25:01,709 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-02-24 11:25:01,889 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-02-24 11:25:02,073 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.362s
+2026-02-24 11:25:02,078 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 11:25:02,081 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:07,400 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-02-24 11:25:07,402 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-02-24 11:25:07,597 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:08,003 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:08,191 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.789s
+2026-02-24 11:25:08,193 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.790s
+2026-02-24 11:25:08,593 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:08,957 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:09,153 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.752s
+2026-02-24 11:25:09,153 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.753s
+2026-02-24 11:25:09,155 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:09,157 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:11,729 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:12,093 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:12,305 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.766s
+2026-02-24 11:25:12,306 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.767s
+2026-02-24 11:25:12,533 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:12,898 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:13,229 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.894s
+2026-02-24 11:25:13,230 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.894s
+2026-02-24 11:25:13,416 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:13,786 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:13,966 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.738s
+2026-02-24 11:25:13,967 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.739s
+2026-02-24 11:25:13,972 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:13,974 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:15,666 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:16,031 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:16,270 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.795s
+2026-02-24 11:25:16,271 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.793s
+2026-02-24 11:25:16,273 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:16,275 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:18,621 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:18,988 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:19,167 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.744s
+2026-02-24 11:25:19,167 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.737s
+2026-02-24 11:25:19,174 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:19,176 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:20,218 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:20,583 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:25:20,908 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.891s
+2026-02-24 11:25:20,908 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.891s
+2026-02-24 11:25:20,911 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:25:20,912 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:29:15,932 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:29:16,302 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:29:16,485 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.743s
+2026-02-24 11:29:16,485 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.745s
+2026-02-24 11:29:16,492 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 11:29:16,493 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:34:48,870 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:34:49,236 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:34:49,427 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.786s
+2026-02-24 11:34:49,428 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.786s
+2026-02-24 11:34:49,432 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:34:49,433 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:35:35,161 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 11:36:50,318 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-02-24 11:36:50,319 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.002s
+2026-02-24 11:36:50,556 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:36:50,922 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:36:51,107 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.787s
+2026-02-24 11:36:51,108 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.787s
+2026-02-24 11:36:51,113 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 11:36:51,114 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 11:36:51,116 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:36:51,117 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:36:52,898 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:36:53,272 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:36:53,461 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.782s
+2026-02-24 11:36:53,461 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.782s
+2026-02-24 11:36:53,468 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:36:53,469 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:38:07,762 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:38:08,125 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:38:08,314 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.748s
+2026-02-24 11:38:08,315 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.747s
+2026-02-24 11:38:08,318 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-02-24 11:38:08,320 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:38:21,785 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:38:22,153 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:38:22,343 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.758s
+2026-02-24 11:38:22,344 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.757s
+2026-02-24 11:38:22,349 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:38:22,351 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:38:34,946 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:38:35,319 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:38:35,503 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.773s
+2026-02-24 11:38:35,503 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.774s
+2026-02-24 11:38:35,509 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:38:35,510 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:39:05,969 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:39:06,342 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:39:06,528 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.814s
+2026-02-24 11:39:06,528 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.803s
+2026-02-24 11:39:06,533 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:39:06,534 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:40:07,669 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:40:08,047 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:40:08,232 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.768s
+2026-02-24 11:40:08,233 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.768s
+2026-02-24 11:40:08,239 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:40:08,240 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:40:09,378 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:40:09,761 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:40:09,950 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.805s
+2026-02-24 11:40:09,950 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.805s
+2026-02-24 11:40:09,959 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:40:09,960 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:41:52,895 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:41:53,263 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:41:53,450 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.753s
+2026-02-24 11:41:53,451 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.754s
+2026-02-24 11:41:53,457 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:41:53,459 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:45:45,923 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:45:46,302 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:45:46,483 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.819s
+2026-02-24 11:45:46,483 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.819s
+2026-02-24 11:45:46,490 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:45:46,492 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:46:37,119 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:46:37,489 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:46:37,670 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.752s
+2026-02-24 11:46:37,670 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.752s
+2026-02-24 11:46:37,675 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:46:37,676 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:07,748 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:07,750 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.003s
+2026-02-24 11:48:07,959 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:48:08,327 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:48:08,510 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.760s
+2026-02-24 11:48:08,511 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.759s
+2026-02-24 11:48:08,515 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 11:48:08,516 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-02-24 11:48:08,518 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:08,519 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:16,097 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:48:16,466 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:48:16,650 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.756s
+2026-02-24 11:48:16,650 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.756s
+2026-02-24 11:48:16,655 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:16,656 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:17,961 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:48:18,332 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:48:18,517 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.781s
+2026-02-24 11:48:18,517 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.783s
+2026-02-24 11:48:18,524 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:48:18,525 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:54:00,619 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:54:00,997 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:54:01,187 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.772s
+2026-02-24 11:54:01,188 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.772s
+2026-02-24 11:54:01,194 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:54:01,196 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:54:04,934 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:54:05,310 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-02-24 11:54:05,495 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.799s
+2026-02-24 11:54:05,496 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.799s
+2026-02-24 11:54:05,500 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-02-24 11:54:05,501 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
