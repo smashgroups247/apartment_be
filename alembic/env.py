@@ -15,7 +15,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-database_url = decouple_config("DB_URL")
+database_url = decouple_config("DB_URL").replace("+asyncpg", "+psycopg2")
 
 # Set the SQLAlchemy URL dynamically
 config.set_main_option("sqlalchemy.url", database_url)
