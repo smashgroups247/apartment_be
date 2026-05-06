@@ -3272,3 +3272,53 @@ WHERE users.email = $1::VARCHAR]
 2026-02-24 11:54:05,496 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.799s
 2026-02-24 11:54:05,500 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
 2026-02-24 11:54:05,501 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-03-03 10:05:40,838 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.001s
+2026-03-03 10:05:41,052 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-03-03 10:05:41,242 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.401s
+2026-03-03 10:05:41,248 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-03-03 10:05:41,251 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-03-03 10:05:56,045 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/logout HTTP/1.1" 200 - 0.000s
+2026-03-03 10:05:56,049 - INFO - auth.py:208: User logged out: id=0699d768f2047ac680008ed9a2412e2b
+2026-03-03 10:05:56,049 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 0.003s
+2026-03-03 10:06:07,784 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-03-03 10:06:07,962 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.348s
+2026-03-03 10:06:07,967 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-03-03 10:06:23,433 - INFO - auth.py:208: User logged out: id=0699d768f2047ac680008ed9a2412e2b
+2026-03-03 10:06:23,434 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 0.003s
+2026-03-03 10:06:28,010 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-03-03 10:06:28,182 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.384s
+2026-03-03 10:06:28,188 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.003s
+2026-03-03 10:06:29,940 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-03-03 10:06:29,941 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-03-03 10:06:30,284 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-03-03 10:06:30,476 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.534s
+2026-03-03 10:06:30,485 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.004s
+2026-03-03 10:06:30,690 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-03-03 10:06:30,867 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.924s
+2026-03-03 10:06:30,881 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-03-03 10:06:34,105 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-03-03 10:06:34,459 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-03-03 10:06:34,641 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.718s
+2026-03-03 10:06:34,641 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.719s
+2026-03-03 10:06:34,645 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-03-03 10:06:34,647 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-05-06 15:24:03,441 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.001s
+2026-05-06 15:24:03,492 - INFO - main.py:138: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-05-06 15:24:03,492 - INFO - main.py:141: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-05-06 15:24:03,492 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 0.049s
+2026-05-06 15:24:36,043 - INFO - auth.py:123: User logged in: israelaregbe@gmail.com (id=0699d768f2047ac680008ed9a2412e2b)
+2026-05-06 15:24:36,227 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 0.372s
+2026-05-06 15:24:36,231 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-06 15:24:36,233 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.002s
+2026-05-06 15:24:38,761 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-06 15:24:38,762 - INFO - main.py:104: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-06 15:24:39,011 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-05-06 15:24:39,205 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.442s
+2026-05-06 15:24:39,208 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-05-06 15:24:39,404 - INFO - auth.py:173: Refresh token rotated for user id=0699d768f2047ac680008ed9a2412e2b
+2026-05-06 15:24:39,603 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 0.839s
+2026-05-06 15:24:39,605 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.001s
+2026-05-06 15:30:16,178 - INFO - main.py:104: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-05-06 15:30:16,243 - INFO - main.py:104: 127.0.0.1 - "GET /favicon.ico HTTP/1.1" 404 - 0.001s
+2026-05-06 15:30:20,021 - INFO - main.py:104: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.001s
+2026-05-06 15:30:21,257 - INFO - main.py:104: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.014s
