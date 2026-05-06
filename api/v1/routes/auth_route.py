@@ -10,6 +10,7 @@ from api.db.database import get_db
 from api.utils.jwt_handler import get_current_user
 from api.utils.success_response import success_response
 from api.v1.models.users import User
+from api.v1.schemas.users import UserProfileResponse
 from api.v1.schemas.auth import (
     ForgotPasswordRequest,
     LogoutRequest,
@@ -143,7 +144,7 @@ async def get_me(
     """
     Returns the profile of the currently authenticated user.
     """
-    user_data = UserResponse.model_validate(current_user).model_dump()
+    user_data = UserProfileResponse.model_validate(current_user).model_dump()
     return success_response(
         status_code=status.HTTP_200_OK,
         message="User profile retrieved successfully.",
