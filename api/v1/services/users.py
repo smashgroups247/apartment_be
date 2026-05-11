@@ -112,23 +112,18 @@ class UserService:
         app_logger.info(f"Password changed for user id={user.id}")
 
     # -----------------------------------------------------------------------
-    # Upload Avatar — Base64 (no MinIO required)
+    # Upload Avatar — Cloudinary
     # -----------------------------------------------------------------------
 
     async def upload_avatar(
         self, file: UploadFile, user: User, db: AsyncSession
     ) -> User:
         """
-        Validate the image, encode as Base64, and save directly to avatar_url.
-
-        No external storage service needed. The Base64 data URL works
-        natively as an <img src> value in any browser.
-
-        NOTE: When MinIO is available, replace the base64 block below
-        with minio_service.upload_to_minio() — no other changes needed.
+        Validate the image and upload to Cloudinary.
 
         Raises:
             HTTPException 400 – invalid file format or exceeds size limit.
+            HTTPException 502 - Cloudinary upload failure.
         """
         # Validate extension
         file_ext = file.filename.split(".")[-1].lower() if file.filename else ""
@@ -138,34 +133,32 @@ class UserService:
                 detail=f"Invalid file format. Allowed: {', '.join(AVATAR_ALLOWED_EXTENSIONS)}",
             )
 
-        # Read file bytes
-        content = await file.read()
-
         # Validate file size
-        size_mb = len(content) / (1024 * 1024)
+        file.file.seek(0, 2)
+        file_size = file.file.tell()
+        file.file.seek(0)
+        
+        size_mb = file_size / (1024 * 1024)
         if size_mb > AVATAR_MAX_SIZE_MB:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail=f"File too large. Maximum size is {AVATAR_MAX_SIZE_MB}MB.",
             )
 
-        # Encode to Base64 data URL
-        mime_map = {
-            "jpg": "image/jpeg",
-            "jpeg": "image/jpeg",
-            "png": "image/png",
-            "webp": "image/webp",
-        }
-        mime_type = mime_map.get(file_ext, "image/jpeg")
-        base64_str = base64.b64encode(content).decode("utf-8")
-        data_url = f"data:{mime_type};base64,{base64_str}"
+        from api.utils.cloudinary_service import cloudinary_service
+
+        upload_result = await cloudinary_service.upload_media(
+            file=file,
+            folder=f"avatars/{user.id}",
+            resource_type="image",
+        )
 
         # Persist to DB
-        user.avatar_url = data_url
+        user.avatar_url = upload_result["url"]
         await db.commit()
         await db.refresh(user)
 
-        app_logger.info(f"Avatar uploaded (base64) for user id={user.id}")
+        app_logger.info(f"Avatar uploaded (cloudinary) for user id={user.id}")
         return user
 
 

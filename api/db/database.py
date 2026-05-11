@@ -5,17 +5,10 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, Asyn
 from sqlalchemy.orm import declarative_base
 from api.utils.settings import settings, BASE_DIR
 
-DB_HOST = settings.DB_HOST
-DB_PORT = settings.DB_PORT
-DB_USER = settings.DB_USER
-DB_PASSWORD = settings.DB_PASSWORD
-DB_NAME = settings.DB_NAME
 DB_TYPE = settings.DB_TYPE
 
 
 def get_db_engine(test_mode: bool = False):
-    DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-
     if DB_TYPE == "sqlite" or test_mode:
         BASE_PATH = f"sqlite+aiosqlite:///{BASE_DIR}"
         DATABASE_URL = BASE_PATH + "/"
@@ -25,8 +18,17 @@ def get_db_engine(test_mode: bool = False):
             return create_async_engine(
                 DATABASE_URL, connect_args={"check_same_thread": False}, echo=False
             )
-    elif DB_TYPE == "postgresql":
-        DATABASE_URL = f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+        return create_async_engine(DATABASE_URL, echo=False)
+
+    # For PostgreSQL: use DB_URL directly (has the full external hostname),
+    # but ensure the scheme is compatible with asyncpg.
+    raw_url = settings.DB_URL
+    if raw_url.startswith("postgresql://"):
+        DATABASE_URL = raw_url.replace("postgresql://", "postgresql+asyncpg://", 1)
+    elif raw_url.startswith("postgres://"):
+        DATABASE_URL = raw_url.replace("postgres://", "postgresql+asyncpg://", 1)
+    else:
+        DATABASE_URL = raw_url
 
     return create_async_engine(DATABASE_URL, echo=False)
 

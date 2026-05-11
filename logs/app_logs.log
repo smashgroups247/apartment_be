@@ -3338,3 +3338,779 @@ WHERE users.email = $1::VARCHAR]
 2026-05-04 10:47:54,266 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.010s
 2026-05-04 10:47:54,313 - INFO - main.py:104: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.797s
 2026-05-04 10:47:54,456 - INFO - main.py:104: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.007s
+2026-05-06 15:54:08,324 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-06 15:54:08,476 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.014s
+2026-05-06 15:54:19,083 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-06 15:54:19,116 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.000s
+2026-05-08 11:45:23,048 - INFO - main.py:105: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-05-08 11:45:26,297 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-08 11:45:26,406 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.014s
+2026-05-08 12:00:23,266 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.002s
+2026-05-08 12:00:23,268 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.003s
+2026-05-08 12:00:23,416 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 12:00:23,417 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 12:00:23,438 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 12:00:23,438 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 12:01:01,914 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 12:01:01,914 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 12:01:01,919 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 12:01:01,920 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('0699d768f2047ac680008ed9a2412e2b',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 13:48:33,364 - INFO - main.py:105: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-05-08 13:48:36,606 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-08 13:48:36,901 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.024s
+2026-05-08 13:56:51,557 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-08 13:56:51,653 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.013s
+2026-05-08 13:57:29,135 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 13:57:29,135 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 13:59:20,101 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 13:59:20,101 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:01:05,350 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-08 14:01:05,493 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.017s
+2026-05-08 14:01:12,112 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:01:12,113 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('john@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('john@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 14:01:18,184 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-08 14:01:18,226 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.000s
+2026-05-08 14:01:44,835 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:01:44,836 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('israeldoe@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('israeldoe@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 14:02:13,156 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:02:13,156 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('israeldoe@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405), <class 'sqlalchemy.exc.ProgrammingError'> (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.phone_number does not exist
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = $1::VARCHAR]
+[parameters: ('israeldoe@example.com',)]
+(Background on this error at: https://sqlalche.me/e/20/f405) 164
+2026-05-08 14:03:42,226 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:03:42,227 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:04:47,077 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/listings HTTP/1.1" 200 - 0.001s
+2026-05-08 14:04:47,078 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/categories HTTP/1.1" 200 - 0.002s
+2026-05-08 14:04:47,872 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/listings HTTP/1.1" 404 - 0.001s
+2026-05-08 14:04:47,873 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/categories HTTP/1.1" 404 - 0.001s
+2026-05-08 14:04:58,699 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-08 14:04:58,700 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-08 14:04:58,723 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 14:04:58,723 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:04:58,734 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 14:04:58,734 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:12:10,219 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:12:10,220 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:12:12,812 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.000s
+2026-05-08 14:12:12,920 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.015s
+2026-05-08 14:12:21,698 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.001s
+2026-05-08 14:12:21,767 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.025s
+2026-05-08 14:12:27,209 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:12:27,209 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:12:59,875 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:12:59,875 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:13:26,597 - INFO - main.py:207: Exception occured | /api/v1/auth/register | 500
+2026-05-08 14:13:26,597 - INFO - main.py:208: [ERROR] - An error occured | [Errno 8] nodename nor servname provided, or not known, <class 'socket.gaierror'> [Errno 8] nodename nor servname provided, or not known 164
+2026-05-08 14:15:08,418 - INFO - auth.py:84: New user registered: john@example.com (id=069fde1dac267a768000c22d3c7f8dc7)
+2026-05-08 14:15:09,450 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/register HTTP/1.1" 201 - 11.050s
+2026-05-08 14:17:05,672 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-05-08 14:17:06,871 - INFO - auth.py:123: User logged in: john@example.com (id=069fde1dac267a768000c22d3c7f8dc7)
+2026-05-08 14:17:07,723 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 2.049s
+2026-05-08 14:17:07,727 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-08 14:17:08,321 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.592s
+2026-05-08 17:00:44,546 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-08 17:00:44,547 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.002s
+2026-05-08 17:00:45,369 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-08 17:00:46,159 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.611s
+2026-05-08 17:00:46,162 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-08 17:00:46,690 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.527s
+2026-05-08 17:26:55,044 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-08 17:26:55,044 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.ConnectionDoesNotExistError'>: connection was closed in the middle of operation
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('069fde1dac267a768000c22d3c7f8dc7',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi), <class 'sqlalchemy.exc.DBAPIError'> (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.ConnectionDoesNotExistError'>: connection was closed in the middle of operation
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('069fde1dac267a768000c22d3c7f8dc7',)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi) 164
+2026-05-11 09:30:56,165 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-11 09:30:56,167 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-11 09:31:04,290 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 09:31:05,284 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 9.117s
+2026-05-11 09:31:05,287 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 09:31:06,046 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 09:31:06,237 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.949s
+2026-05-11 09:31:07,360 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 11.192s
+2026-05-11 09:31:07,896 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.533s
+2026-05-11 09:31:08,196 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-05-11 09:31:09,243 - INFO - main.py:139: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-05-11 09:31:09,243 - INFO - main.py:142: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-05-11 09:31:09,243 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 1.046s
+2026-05-11 09:31:13,554 - INFO - main.py:139: HTTPException: /api/v1/auth/login | 401 | Invalid email/username or password.
+2026-05-11 09:31:13,554 - INFO - main.py:142: [ERROR] - An error occured | 401: Invalid email/username or password., <class 'fastapi.exceptions.HTTPException'> 401: Invalid email/username or password. line 42
+2026-05-11 09:31:13,554 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 401 - 1.106s
+2026-05-11 09:31:20,078 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 09:31:20,463 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 09:31:20,921 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.564s
+2026-05-11 09:31:21,187 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.830s
+2026-05-11 09:31:21,447 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.524s
+2026-05-11 09:31:21,985 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.537s
+2026-05-11 09:49:08,422 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 09:49:08,423 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 09:49:08,600 - INFO - users.py:77: Profile updated for user id=06a01980498e78108000cfe52160ca87 | fields=['first_name', 'last_name']
+2026-05-11 09:49:08,600 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 09:49:08,601 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 09:49:08,794 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a019804ca773e68000acbd570fed83
+2026-05-11 09:49:08,795 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 09:49:08,795 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 09:49:08,979 - INFO - main.py:207: Exception occured | /api/v1/listings | 500
+2026-05-11 09:49:08,979 - INFO - main.py:208: [ERROR] - An error occured | greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s), <class 'sqlalchemy.exc.MissingGreenlet'> greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s) 164
+2026-05-11 09:49:09,456 - INFO - main.py:139: HTTPException: /api/v1/listings | 409 | You have already listed a property at this exact address.
+2026-05-11 09:49:09,456 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a property at this exact address., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a property at this exact address. line 42
+2026-05-11 09:49:09,456 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 409 - 0.002s
+2026-05-11 09:49:09,456 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 409 Conflict"
+2026-05-11 09:49:09,649 - INFO - main.py:166: RequestValidationError: /api/v1/listings | [{'loc': ('body', 'description'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'property_type'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'address'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'city'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'state'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'country'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'price'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'bedrooms'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'bathrooms'), 'msg': 'Field required', 'type': 'missing'}]
+2026-05-11 09:49:09,649 - INFO - main.py:167: [ERROR] - An error occured | [{'type': 'missing', 'loc': ('body', 'description'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'property_type'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'city'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'state'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'country'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'price'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bedrooms'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bathrooms'), 'msg': 'Field required', 'input': None}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'missing', 'loc': ('body', 'description'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'property_type'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'city'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'state'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'country'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'price'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bedrooms'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bathrooms'), 'msg': 'Field required', 'input': None}] line 42
+2026-05-11 09:49:09,649 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 422 - 0.004s
+2026-05-11 09:49:09,649 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 09:49:09,834 - INFO - main.py:139: HTTPException: /api/v1/listings | 400 | Invalid file format: document.txt. Allowed: jpg, jpeg, png, webp, mp4, mov, webm
+2026-05-11 09:49:09,834 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.txt. Allowed: jpg, jpeg, png, webp, mp4, mov, webm, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.txt. Allowed: jpg, jpeg, png, webp, mp4, mov, webm line 42
+2026-05-11 09:49:09,834 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 400 - 0.007s
+2026-05-11 09:49:09,834 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 400 Bad Request"
+2026-05-11 09:49:10,024 - INFO - main.py:139: HTTPException: /api/v1/listings | 502 | Failed to upload media to Cloudinary.
+2026-05-11 09:49:10,024 - INFO - main.py:142: [ERROR] - An error occured | 502: Failed to upload media to Cloudinary., <class 'fastapi.exceptions.HTTPException'> 502: Failed to upload media to Cloudinary. line 42
+2026-05-11 09:49:10,024 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 502 - 0.007s
+2026-05-11 09:49:10,024 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 502 Bad Gateway"
+2026-05-11 09:49:29,983 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.002s
+2026-05-11 09:49:29,983 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 09:49:30,175 - INFO - users.py:77: Profile updated for user id=06a01981a2c0789580007b16d5b7f586 | fields=['first_name', 'last_name']
+2026-05-11 09:49:30,175 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 09:49:30,176 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 09:49:30,360 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01981a5b3740d80004ac587242378
+2026-05-11 09:49:30,360 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 09:49:30,360 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 09:49:30,548 - INFO - listings.py:109: Listing created successfully for user id=06a01981a8947067800099a6444000bd, listing id=06a01981a8c274b380006d1b2c4954de
+2026-05-11 09:49:30,548 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 201 - 0.011s
+2026-05-11 09:49:30,548 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 201 Created"
+2026-05-11 09:49:30,739 - INFO - main.py:139: HTTPException: /api/v1/listings | 409 | You have already listed a property at this exact address.
+2026-05-11 09:49:30,739 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a property at this exact address., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a property at this exact address. line 42
+2026-05-11 09:49:30,739 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 409 - 0.002s
+2026-05-11 09:49:30,740 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 409 Conflict"
+2026-05-11 09:49:30,916 - INFO - main.py:166: RequestValidationError: /api/v1/listings | [{'loc': ('body', 'description'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'property_type'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'address'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'city'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'state'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'country'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'price'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'bedrooms'), 'msg': 'Field required', 'type': 'missing'}, {'loc': ('body', 'bathrooms'), 'msg': 'Field required', 'type': 'missing'}]
+2026-05-11 09:49:30,916 - INFO - main.py:167: [ERROR] - An error occured | [{'type': 'missing', 'loc': ('body', 'description'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'property_type'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'city'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'state'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'country'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'price'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bedrooms'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bathrooms'), 'msg': 'Field required', 'input': None}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'missing', 'loc': ('body', 'description'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'property_type'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'city'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'state'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'country'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'price'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bedrooms'), 'msg': 'Field required', 'input': None}, {'type': 'missing', 'loc': ('body', 'bathrooms'), 'msg': 'Field required', 'input': None}] line 42
+2026-05-11 09:49:30,916 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 422 - 0.001s
+2026-05-11 09:49:30,917 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 09:49:31,112 - INFO - main.py:139: HTTPException: /api/v1/listings | 400 | Invalid file format: document.txt. Allowed: jpg, jpeg, png, webp, mp4, mov, webm
+2026-05-11 09:49:31,112 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.txt. Allowed: jpg, jpeg, png, webp, mp4, mov, webm, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.txt. Allowed: jpg, jpeg, png, webp, mp4, mov, webm line 42
+2026-05-11 09:49:31,112 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 400 - 0.007s
+2026-05-11 09:49:31,112 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 400 Bad Request"
+2026-05-11 09:49:31,297 - INFO - main.py:139: HTTPException: /api/v1/listings | 502 | Failed to upload media to Cloudinary.
+2026-05-11 09:49:31,297 - INFO - main.py:142: [ERROR] - An error occured | 502: Failed to upload media to Cloudinary., <class 'fastapi.exceptions.HTTPException'> 502: Failed to upload media to Cloudinary. line 42
+2026-05-11 09:49:31,297 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/listings HTTP/1.1" 502 - 0.007s
+2026-05-11 09:49:31,297 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/listings "HTTP/1.1 502 Bad Gateway"
+2026-05-11 09:52:52,790 - INFO - main.py:105: 127.0.0.1 - "GET / HTTP/1.1" 200 - 0.001s
+2026-05-11 09:52:52,878 - INFO - main.py:105: 127.0.0.1 - "GET /favicon.ico HTTP/1.1" 404 - 0.001s
+2026-05-11 09:52:58,330 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.001s
+2026-05-11 09:52:58,479 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.020s
+2026-05-11 10:26:29,307 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 10:26:29,307 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 10:26:29,487 - INFO - users.py:77: Profile updated for user id=06a01a0c57be72a3800021ecbe3249ba | fields=['first_name', 'last_name']
+2026-05-11 10:26:29,487 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 10:26:29,487 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 10:26:29,690 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01a0c5af97c9480001f3318c34247
+2026-05-11 10:26:29,690 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 10:26:29,690 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 10:26:29,881 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.011s
+2026-05-11 10:26:29,881 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 10:26:30,064 - INFO - main.py:166: RequestValidationError: /api/v1/rides | [{'loc': ('body', 'files'), 'msg': 'Field required', 'type': 'missing'}]
+2026-05-11 10:26:30,064 - INFO - main.py:167: [ERROR] - An error occured | [{'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}] line 42
+2026-05-11 10:26:30,064 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.002s
+2026-05-11 10:26:30,064 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 10:26:30,252 - INFO - main.py:207: Exception occured | /api/v1/rides | 500
+2026-05-11 10:26:30,253 - INFO - main.py:208: [ERROR] - An error occured | 1 validation error for RideCreate
+  Value error, Total passenger count (5) cannot exceed seat count (4) [type=value_error, input_value={'ride_type': 'suv', 'sea...: 'NGN', 'features': []}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error, <class 'pydantic_core._pydantic_core.ValidationError'> 1 validation error for RideCreate
+  Value error, Total passenger count (5) cannot exceed seat count (4) [type=value_error, input_value={'ride_type': 'suv', 'sea...: 'NGN', 'features': []}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/value_error 164
+2026-05-11 10:26:30,551 - INFO - main.py:207: Exception occured | /api/v1/rides | 500
+2026-05-11 10:26:30,552 - INFO - main.py:208: [ERROR] - An error occured | 1 validation error for RideCreate
+price
+  Input should be greater than 0 [type=greater_than, input_value=-500.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/greater_than, <class 'pydantic_core._pydantic_core.ValidationError'> 1 validation error for RideCreate
+price
+  Input should be greater than 0 [type=greater_than, input_value=-500.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/greater_than 164
+2026-05-11 10:26:30,842 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.008s
+2026-05-11 10:26:30,843 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 10:26:30,850 - INFO - main.py:139: HTTPException: /api/v1/rides | 409 | You have already listed a similar ride at this location.
+2026-05-11 10:26:30,850 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a similar ride at this location., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a similar ride at this location. line 42
+2026-05-11 10:26:30,850 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 409 - 0.007s
+2026-05-11 10:26:30,850 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 409 Conflict"
+2026-05-11 10:26:31,036 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Maximum of 5 photos allowed.
+2026-05-11 10:26:31,037 - INFO - main.py:142: [ERROR] - An error occured | 400: Maximum of 5 photos allowed., <class 'fastapi.exceptions.HTTPException'> 400: Maximum of 5 photos allowed. line 42
+2026-05-11 10:26:31,037 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.009s
+2026-05-11 10:26:31,037 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 10:26:31,221 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Invalid file format: document.pdf
+2026-05-11 10:26:31,221 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.pdf, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.pdf line 42
+2026-05-11 10:26:31,221 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.006s
+2026-05-11 10:26:31,222 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 10:27:03,457 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 10:27:03,457 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 10:27:03,638 - INFO - users.py:77: Profile updated for user id=06a01a0e7a287c798000707ca376d33a | fields=['first_name', 'last_name']
+2026-05-11 10:27:03,638 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 10:27:03,638 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 10:27:03,823 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01a0e7d1a7c7980007acf82e4d1ce
+2026-05-11 10:27:03,823 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 10:27:03,823 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 10:27:04,012 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.011s
+2026-05-11 10:27:04,013 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 10:27:04,192 - INFO - main.py:166: RequestValidationError: /api/v1/rides | [{'loc': ('body', 'files'), 'msg': 'Field required', 'type': 'missing'}]
+2026-05-11 10:27:04,192 - INFO - main.py:167: [ERROR] - An error occured | [{'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}] line 42
+2026-05-11 10:27:04,192 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.001s
+2026-05-11 10:27:04,192 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 10:27:04,379 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | [{'type': 'value_error', 'loc': (), 'msg': 'Value error, Total passenger count (5) cannot exceed seat count (4)', 'input': {'ride_type': 'suv', 'seat_count': 4, 'door_count': 4, 'pickup_location': 'Downtown', 'pickup_latitude': None, 'pickup_longitude': None, 'adult_passenger_count': 3, 'children_passenger_count': 2, 'infant_passenger_count': 0, 'price': 10000.0, 'currency': 'NGN', 'features': []}, 'ctx': {'error': ValueError('Total passenger count (5) cannot exceed seat count (4)')}, 'url': 'https://errors.pydantic.dev/2.12/v/value_error'}]
+2026-05-11 10:27:04,379 - INFO - main.py:142: [ERROR] - An error occured | 422: [{'type': 'value_error', 'loc': (), 'msg': 'Value error, Total passenger count (5) cannot exceed seat count (4)', 'input': {'ride_type': 'suv', 'seat_count': 4, 'door_count': 4, 'pickup_location': 'Downtown', 'pickup_latitude': None, 'pickup_longitude': None, 'adult_passenger_count': 3, 'children_passenger_count': 2, 'infant_passenger_count': 0, 'price': 10000.0, 'currency': 'NGN', 'features': []}, 'ctx': {'error': ValueError('Total passenger count (5) cannot exceed seat count (4)')}, 'url': 'https://errors.pydantic.dev/2.12/v/value_error'}], <class 'fastapi.exceptions.HTTPException'> 422: [{'type': 'value_error', 'loc': (), 'msg': 'Value error, Total passenger count (5) cannot exceed seat count (4)', 'input': {'ride_type': 'suv', 'seat_count': 4, 'door_count': 4, 'pickup_location': 'Downtown', 'pickup_latitude': None, 'pickup_longitude': None, 'adult_passenger_count': 3, 'children_passenger_count': 2, 'infant_passenger_count': 0, 'price': 10000.0, 'currency': 'NGN', 'features': []}, 'ctx': {'error': ValueError('Total passenger count (5) cannot exceed seat count (4)')}, 'url': 'https://errors.pydantic.dev/2.12/v/value_error'}] line 42
+2026-05-11 10:27:04,379 - INFO - main.py:207: Exception occured | /api/v1/rides | 500
+2026-05-11 10:27:04,379 - INFO - main.py:208: [ERROR] - An error occured | Object of type ValueError is not JSON serializable, <class 'TypeError'> Object of type ValueError is not JSON serializable 164
+2026-05-11 10:27:04,680 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | [{'type': 'greater_than', 'loc': ('price',), 'msg': 'Input should be greater than 0', 'input': -500.0, 'ctx': {'gt': 0.0}, 'url': 'https://errors.pydantic.dev/2.12/v/greater_than'}]
+2026-05-11 10:27:04,680 - INFO - main.py:142: [ERROR] - An error occured | 422: [{'type': 'greater_than', 'loc': ('price',), 'msg': 'Input should be greater than 0', 'input': -500.0, 'ctx': {'gt': 0.0}, 'url': 'https://errors.pydantic.dev/2.12/v/greater_than'}], <class 'fastapi.exceptions.HTTPException'> 422: [{'type': 'greater_than', 'loc': ('price',), 'msg': 'Input should be greater than 0', 'input': -500.0, 'ctx': {'gt': 0.0}, 'url': 'https://errors.pydantic.dev/2.12/v/greater_than'}] line 42
+2026-05-11 10:27:04,680 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 10:27:04,680 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 10:27:04,866 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.008s
+2026-05-11 10:27:04,867 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 10:27:04,873 - INFO - main.py:139: HTTPException: /api/v1/rides | 409 | You have already listed a similar ride at this location.
+2026-05-11 10:27:04,873 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a similar ride at this location., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a similar ride at this location. line 42
+2026-05-11 10:27:04,874 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 409 - 0.007s
+2026-05-11 10:27:04,874 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 409 Conflict"
+2026-05-11 10:27:05,080 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Maximum of 5 photos allowed.
+2026-05-11 10:27:05,080 - INFO - main.py:142: [ERROR] - An error occured | 400: Maximum of 5 photos allowed., <class 'fastapi.exceptions.HTTPException'> 400: Maximum of 5 photos allowed. line 42
+2026-05-11 10:27:05,080 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.028s
+2026-05-11 10:27:05,080 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 10:27:05,264 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Invalid file format: document.pdf
+2026-05-11 10:27:05,264 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.pdf, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.pdf line 42
+2026-05-11 10:27:05,264 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.006s
+2026-05-11 10:27:05,264 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 10:27:30,109 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 10:27:30,110 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 10:27:30,289 - INFO - users.py:77: Profile updated for user id=06a01a10249577688000e7568dc1188f | fields=['first_name', 'last_name']
+2026-05-11 10:27:30,290 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 10:27:30,290 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 10:27:30,498 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01a1027e675be8000168b5556c774
+2026-05-11 10:27:30,498 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 10:27:30,498 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 10:27:30,687 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.011s
+2026-05-11 10:27:30,687 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 10:27:30,867 - INFO - main.py:166: RequestValidationError: /api/v1/rides | [{'loc': ('body', 'files'), 'msg': 'Field required', 'type': 'missing'}]
+2026-05-11 10:27:30,867 - INFO - main.py:167: [ERROR] - An error occured | [{'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}] line 42
+2026-05-11 10:27:30,867 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.001s
+2026-05-11 10:27:30,867 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 10:27:31,053 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ['(): Value error, Total passenger count (5) cannot exceed seat count (4)']
+2026-05-11 10:27:31,053 - INFO - main.py:142: [ERROR] - An error occured | 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'], <class 'fastapi.exceptions.HTTPException'> 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'] line 42
+2026-05-11 10:27:31,053 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 10:27:31,053 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 10:27:31,239 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ["('price',): Input should be greater than 0"]
+2026-05-11 10:27:31,239 - INFO - main.py:142: [ERROR] - An error occured | 422: ["('price',): Input should be greater than 0"], <class 'fastapi.exceptions.HTTPException'> 422: ["('price',): Input should be greater than 0"] line 42
+2026-05-11 10:27:31,239 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 10:27:31,240 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 10:27:31,426 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.008s
+2026-05-11 10:27:31,426 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 10:27:31,434 - INFO - main.py:139: HTTPException: /api/v1/rides | 409 | You have already listed a similar ride at this location.
+2026-05-11 10:27:31,434 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a similar ride at this location., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a similar ride at this location. line 42
+2026-05-11 10:27:31,434 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 409 - 0.008s
+2026-05-11 10:27:31,434 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 409 Conflict"
+2026-05-11 10:27:31,621 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Maximum of 5 photos allowed.
+2026-05-11 10:27:31,621 - INFO - main.py:142: [ERROR] - An error occured | 400: Maximum of 5 photos allowed., <class 'fastapi.exceptions.HTTPException'> 400: Maximum of 5 photos allowed. line 42
+2026-05-11 10:27:31,621 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.009s
+2026-05-11 10:27:31,621 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 10:27:31,805 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Invalid file format: document.pdf
+2026-05-11 10:27:31,805 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.pdf, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.pdf line 42
+2026-05-11 10:27:31,805 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.006s
+2026-05-11 10:27:31,805 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 10:58:01,798 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 10:58:01,799 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 10:58:01,800 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 10:58:01,800 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 10:58:01,800 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.000s
+2026-05-11 10:58:01,801 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 10:58:01,801 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 10:58:01,801 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.000s
+2026-05-11 10:58:04,244 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 10:58:04,244 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 10:58:04,244 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.000s
+2026-05-11 10:58:04,245 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.002s
+2026-05-11 10:58:04,246 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 10:58:04,252 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 10:58:04,253 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 10:58:04,254 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.002s
+2026-05-11 10:58:12,362 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 10:58:13,492 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 9.241s
+2026-05-11 10:58:14,318 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 10:58:16,231 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 10:58:16,416 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 12.163s
+2026-05-11 10:58:16,968 - INFO - auth.py:173: Refresh token rotated for user id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 10:58:17,840 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 7.130s
+2026-05-11 10:58:17,843 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 10:58:18,202 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 7.491s
+2026-05-11 10:58:18,510 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.667s
+2026-05-11 10:58:19,092 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.582s
+2026-05-11 10:58:22,055 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/logout HTTP/1.1" 200 - 0.000s
+2026-05-11 10:58:23,382 - INFO - auth.py:208: User logged out: id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 10:58:23,382 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 1.326s
+2026-05-11 10:58:24,143 - INFO - auth.py:208: User logged out: id=069fde1dac267a768000c22d3c7f8dc7
+2026-05-11 10:58:24,143 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/logout HTTP/1.1" 200 - 0.837s
+2026-05-11 10:58:45,706 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 - 0.000s
+2026-05-11 10:58:48,412 - INFO - auth.py:84: New user registered: isltimi@yahoo.com (id=06a01a856d7e755380003bc297fa7232)
+2026-05-11 10:58:49,166 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/register HTTP/1.1" 201 - 3.459s
+2026-05-11 10:58:49,808 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.636s
+2026-05-11 10:58:58,238 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 10:58:58,239 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 10:59:00,877 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 2.638s
+2026-05-11 10:59:04,341 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 3.463s
+2026-05-11 10:59:33,925 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides HTTP/1.1" 200 - 0.000s
+2026-05-11 10:59:34,901 - INFO - main.py:166: RequestValidationError: /api/v1/rides | [{'loc': ('body', 'pickup_latitude'), 'msg': 'Input should be a valid number, unable to parse string as a number', 'type': 'float_parsing'}, {'loc': ('body', 'pickup_longitude'), 'msg': 'Input should be a valid number, unable to parse string as a number', 'type': 'float_parsing'}, {'loc': ('body', 'files'), 'msg': 'Field required', 'type': 'missing'}]
+2026-05-11 10:59:34,901 - INFO - main.py:167: [ERROR] - An error occured | [{'type': 'float_parsing', 'loc': ('body', 'pickup_latitude'), 'msg': 'Input should be a valid number, unable to parse string as a number', 'input': ''}, {'type': 'float_parsing', 'loc': ('body', 'pickup_longitude'), 'msg': 'Input should be a valid number, unable to parse string as a number', 'input': ''}, {'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}], <class 'fastapi.exceptions.RequestValidationError'> [{'type': 'float_parsing', 'loc': ('body', 'pickup_latitude'), 'msg': 'Input should be a valid number, unable to parse string as a number', 'input': ''}, {'type': 'float_parsing', 'loc': ('body', 'pickup_longitude'), 'msg': 'Input should be a valid number, unable to parse string as a number', 'input': ''}, {'type': 'missing', 'loc': ('body', 'files'), 'msg': 'Field required', 'input': None}] line 42
+2026-05-11 10:59:34,901 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.974s
+2026-05-11 11:00:44,682 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 11:00:44,683 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 11:00:44,866 - INFO - users.py:77: Profile updated for user id=06a01a8ccdd073b88000854fdb91d8f7 | fields=['first_name', 'last_name']
+2026-05-11 11:00:44,867 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 11:00:44,867 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 11:00:45,066 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01a8cd0fd79fd8000f417b35b4e26
+2026-05-11 11:00:45,066 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 11:00:45,066 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 11:00:45,257 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.011s
+2026-05-11 11:00:45,258 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 11:00:45,448 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:00:45,448 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:00:45,448 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.001s
+2026-05-11 11:00:45,449 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:00:45,668 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ['(): Value error, Total passenger count (5) cannot exceed seat count (4)']
+2026-05-11 11:00:45,668 - INFO - main.py:142: [ERROR] - An error occured | 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'], <class 'fastapi.exceptions.HTTPException'> 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'] line 42
+2026-05-11 11:00:45,669 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.007s
+2026-05-11 11:00:45,669 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 11:00:45,857 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ["('price',): Input should be greater than 0"]
+2026-05-11 11:00:45,857 - INFO - main.py:142: [ERROR] - An error occured | 422: ["('price',): Input should be greater than 0"], <class 'fastapi.exceptions.HTTPException'> 422: ["('price',): Input should be greater than 0"] line 42
+2026-05-11 11:00:45,857 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.007s
+2026-05-11 11:00:45,857 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 11:00:46,062 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.008s
+2026-05-11 11:00:46,062 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 11:00:46,069 - INFO - main.py:139: HTTPException: /api/v1/rides | 409 | You have already listed a similar ride at this location.
+2026-05-11 11:00:46,069 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a similar ride at this location., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a similar ride at this location. line 42
+2026-05-11 11:00:46,070 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 409 - 0.008s
+2026-05-11 11:00:46,070 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 409 Conflict"
+2026-05-11 11:00:46,263 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Maximum of 5 photos allowed.
+2026-05-11 11:00:46,263 - INFO - main.py:142: [ERROR] - An error occured | 400: Maximum of 5 photos allowed., <class 'fastapi.exceptions.HTTPException'> 400: Maximum of 5 photos allowed. line 42
+2026-05-11 11:00:46,263 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.009s
+2026-05-11 11:00:46,264 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:00:46,456 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Invalid file format: document.pdf
+2026-05-11 11:00:46,456 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.pdf, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.pdf line 42
+2026-05-11 11:00:46,456 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.006s
+2026-05-11 11:00:46,456 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:01:11,408 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 11:01:11,408 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 11:01:11,596 - INFO - users.py:77: Profile updated for user id=06a01a8e797c70e38000f2a4e8989927 | fields=['first_name', 'last_name']
+2026-05-11 11:01:11,596 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 11:01:11,596 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 11:01:11,798 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01a8e7cb47d8b8000ee0a044d9d44
+2026-05-11 11:01:11,799 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 11:01:11,799 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 11:01:11,991 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.011s
+2026-05-11 11:01:11,992 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 11:01:12,184 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:01:12,184 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:01:12,184 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.001s
+2026-05-11 11:01:12,184 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:01:12,382 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ['(): Value error, Total passenger count (5) cannot exceed seat count (4)']
+2026-05-11 11:01:12,382 - INFO - main.py:142: [ERROR] - An error occured | 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'], <class 'fastapi.exceptions.HTTPException'> 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'] line 42
+2026-05-11 11:01:12,382 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 11:01:12,383 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 11:01:12,572 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ["('price',): Input should be greater than 0"]
+2026-05-11 11:01:12,572 - INFO - main.py:142: [ERROR] - An error occured | 422: ["('price',): Input should be greater than 0"], <class 'fastapi.exceptions.HTTPException'> 422: ["('price',): Input should be greater than 0"] line 42
+2026-05-11 11:01:12,572 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 11:01:12,572 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 11:01:12,777 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.009s
+2026-05-11 11:01:12,777 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 11:01:12,785 - INFO - main.py:139: HTTPException: /api/v1/rides | 409 | You have already listed a similar ride at this location.
+2026-05-11 11:01:12,785 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a similar ride at this location., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a similar ride at this location. line 42
+2026-05-11 11:01:12,785 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 409 - 0.007s
+2026-05-11 11:01:12,785 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 409 Conflict"
+2026-05-11 11:01:12,977 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Maximum of 5 photos allowed.
+2026-05-11 11:01:12,977 - INFO - main.py:142: [ERROR] - An error occured | 400: Maximum of 5 photos allowed., <class 'fastapi.exceptions.HTTPException'> 400: Maximum of 5 photos allowed. line 42
+2026-05-11 11:01:12,978 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.009s
+2026-05-11 11:01:12,978 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:01:13,169 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Invalid file format: document.pdf
+2026-05-11 11:01:13,169 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.pdf, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.pdf line 42
+2026-05-11 11:01:13,169 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.006s
+2026-05-11 11:01:13,169 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:02:34,611 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ["('features', 0): Input should be a valid string", "('features', 1): Input should be a valid string", "('features', 2): Input should be a valid string"]
+2026-05-11 11:02:34,612 - INFO - main.py:142: [ERROR] - An error occured | 422: ["('features', 0): Input should be a valid string", "('features', 1): Input should be a valid string", "('features', 2): Input should be a valid string"], <class 'fastapi.exceptions.HTTPException'> 422: ["('features', 0): Input should be a valid string", "('features', 1): Input should be a valid string", "('features', 2): Input should be a valid string"] line 42
+2026-05-11 11:02:34,612 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 8.114s
+2026-05-11 11:02:56,202 - INFO - main.py:105: 127.0.0.1 - "GET /docs HTTP/1.1" 200 - 0.001s
+2026-05-11 11:02:57,003 - INFO - main.py:105: 127.0.0.1 - "GET /openapi.json HTTP/1.1" 200 - 0.023s
+2026-05-11 11:03:07,966 - INFO - auth.py:123: User logged in: john@example.com (id=069fde1dac267a768000c22d3c7f8dc7)
+2026-05-11 11:03:09,555 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 3.261s
+2026-05-11 11:03:17,646 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 200 - 0.001s
+2026-05-11 11:03:17,646 - INFO - _client.py:1729: HTTP Request: GET http://test/api/v1/users/me "HTTP/1.1 200 OK"
+2026-05-11 11:03:17,832 - INFO - users.py:77: Profile updated for user id=06a01a965d407ecf8000a9bc07d5a520 | fields=['first_name', 'last_name']
+2026-05-11 11:03:17,832 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 0.002s
+2026-05-11 11:03:17,832 - INFO - _client.py:1729: HTTP Request: PUT http://test/api/v1/users/update "HTTP/1.1 200 OK"
+2026-05-11 11:03:18,030 - INFO - users.py:161: Avatar uploaded (cloudinary) for user id=06a01a96606c7e03800039bbfb5669c1
+2026-05-11 11:03:18,031 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.003s
+2026-05-11 11:03:18,031 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/users/upload-avatar "HTTP/1.1 200 OK"
+2026-05-11 11:03:18,222 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.011s
+2026-05-11 11:03:18,222 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 11:03:18,412 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:03:18,412 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:03:18,412 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.001s
+2026-05-11 11:03:18,413 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:03:18,610 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ['(): Value error, Total passenger count (5) cannot exceed seat count (4)']
+2026-05-11 11:03:18,610 - INFO - main.py:142: [ERROR] - An error occured | 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'], <class 'fastapi.exceptions.HTTPException'> 422: ['(): Value error, Total passenger count (5) cannot exceed seat count (4)'] line 42
+2026-05-11 11:03:18,610 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 11:03:18,610 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 11:03:18,799 - INFO - main.py:139: HTTPException: /api/v1/rides | 422 | ["('price',): Input should be greater than 0"]
+2026-05-11 11:03:18,799 - INFO - main.py:142: [ERROR] - An error occured | 422: ["('price',): Input should be greater than 0"], <class 'fastapi.exceptions.HTTPException'> 422: ["('price',): Input should be greater than 0"] line 42
+2026-05-11 11:03:18,799 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 422 - 0.006s
+2026-05-11 11:03:18,799 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 422 Unprocessable Entity"
+2026-05-11 11:03:19,000 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 0.008s
+2026-05-11 11:03:19,001 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 201 Created"
+2026-05-11 11:03:19,008 - INFO - main.py:139: HTTPException: /api/v1/rides | 409 | You have already listed a similar ride at this location.
+2026-05-11 11:03:19,008 - INFO - main.py:142: [ERROR] - An error occured | 409: You have already listed a similar ride at this location., <class 'fastapi.exceptions.HTTPException'> 409: You have already listed a similar ride at this location. line 42
+2026-05-11 11:03:19,009 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 409 - 0.008s
+2026-05-11 11:03:19,009 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 409 Conflict"
+2026-05-11 11:03:19,204 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Maximum of 5 photos allowed.
+2026-05-11 11:03:19,204 - INFO - main.py:142: [ERROR] - An error occured | 400: Maximum of 5 photos allowed., <class 'fastapi.exceptions.HTTPException'> 400: Maximum of 5 photos allowed. line 42
+2026-05-11 11:03:19,204 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.009s
+2026-05-11 11:03:19,204 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:03:19,396 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | Invalid file format: document.pdf
+2026-05-11 11:03:19,396 - INFO - main.py:142: [ERROR] - An error occured | 400: Invalid file format: document.pdf, <class 'fastapi.exceptions.HTTPException'> 400: Invalid file format: document.pdf line 42
+2026-05-11 11:03:19,396 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.006s
+2026-05-11 11:03:19,396 - INFO - _client.py:1729: HTTP Request: POST http://test/api/v1/rides "HTTP/1.1 400 Bad Request"
+2026-05-11 11:03:30,289 - INFO - main.py:139: HTTPException: /api/v1/users/me | 401 | Could not validate credentials.
+2026-05-11 11:03:30,290 - INFO - main.py:142: [ERROR] - An error occured | 401: Could not validate credentials., <class 'fastapi.exceptions.HTTPException'> 401: Could not validate credentials. line 42
+2026-05-11 11:03:30,290 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 401 - 0.004s
+2026-05-11 11:04:06,354 - INFO - auth.py:123: User logged in: isltimi@yahoo.com (id=06a01a856d7e755380003bc297fa7232)
+2026-05-11 11:04:07,482 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 8.525s
+2026-05-11 11:06:10,654 - INFO - main.py:139: HTTPException: /api/v1/users/me | 401 | Could not validate credentials.
+2026-05-11 11:06:10,654 - INFO - main.py:142: [ERROR] - An error occured | 401: Could not validate credentials., <class 'fastapi.exceptions.HTTPException'> 401: Could not validate credentials. line 42
+2026-05-11 11:06:10,654 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 401 - 0.001s
+2026-05-11 11:06:13,527 - INFO - main.py:139: HTTPException: /api/v1/users/me | 401 | Could not validate credentials.
+2026-05-11 11:06:13,527 - INFO - main.py:142: [ERROR] - An error occured | 401: Could not validate credentials., <class 'fastapi.exceptions.HTTPException'> 401: Could not validate credentials. line 42
+2026-05-11 11:06:13,527 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/users/me HTTP/1.1" 401 - 0.001s
+2026-05-11 11:06:59,725 - INFO - main.py:139: HTTPException: /api/v1/users/update | 401 | Could not validate credentials.
+2026-05-11 11:06:59,725 - INFO - main.py:142: [ERROR] - An error occured | 401: Could not validate credentials., <class 'fastapi.exceptions.HTTPException'> 401: Could not validate credentials. line 42
+2026-05-11 11:06:59,726 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 401 - 0.002s
+2026-05-11 11:07:15,714 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:15,714 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:15,714 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 11:07:15,721 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:15,721 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:15,722 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.002s
+2026-05-11 11:07:16,453 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 4.081s
+2026-05-11 11:07:17,869 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:17,869 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:17,869 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 11:07:17,874 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:17,874 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:17,874 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.002s
+2026-05-11 11:07:18,675 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:19,503 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.632s
+2026-05-11 11:07:20,114 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.609s
+2026-05-11 11:07:21,181 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:21,539 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:22,876 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 7.154s
+2026-05-11 11:07:23,446 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:23,627 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 7.911s
+2026-05-11 11:07:24,170 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-05-11 11:07:24,653 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 6.775s
+2026-05-11 11:07:24,653 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 9.172s
+2026-05-11 11:07:25,224 - INFO - auth.py:123: User logged in: isltimi@yahoo.com (id=06a01a856d7e755380003bc297fa7232)
+2026-05-11 11:07:25,852 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 1.197s
+2026-05-11 11:07:26,240 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 2.069s
+2026-05-11 11:07:26,957 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.714s
+2026-05-11 11:07:28,517 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:28,517 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:28,517 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.000s
+2026-05-11 11:07:28,520 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:28,520 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:28,521 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 11:07:30,128 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:30,517 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:31,665 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 3.146s
+2026-05-11 11:07:32,654 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 4.132s
+2026-05-11 11:07:32,758 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 1.090s
+2026-05-11 11:07:33,409 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.650s
+2026-05-11 11:07:35,166 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:35,166 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:35,167 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 11:07:35,170 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 11:07:35,170 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 11:07:35,170 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 11:07:35,967 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:36,356 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:07:36,992 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.823s
+2026-05-11 11:07:37,402 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.230s
+2026-05-11 11:07:37,887 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.893s
+2026-05-11 11:07:38,688 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.799s
+2026-05-11 11:07:44,262 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 3.508s
+2026-05-11 11:07:47,592 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 3.328s
+2026-05-11 11:07:58,600 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:07:58,601 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:07:58,601 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 1.014s
+2026-05-11 11:08:40,347 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:08:40,348 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:08:40,348 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 0.961s
+2026-05-11 11:22:31,718 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides HTTP/1.1" 200 - 0.000s
+2026-05-11 11:22:32,799 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:22:32,799 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:22:32,799 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 1.078s
+2026-05-11 11:22:44,758 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.010s
+2026-05-11 11:22:44,759 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 11:22:45,687 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:22:46,075 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 11:22:46,618 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.857s
+2026-05-11 11:22:46,620 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 11:22:47,029 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.269s
+2026-05-11 11:22:47,507 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.887s
+2026-05-11 11:22:48,089 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.581s
+2026-05-11 11:22:48,808 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 11:22:48,809 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 11:22:50,347 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.538s
+2026-05-11 11:22:51,376 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.027s
+2026-05-11 11:23:21,639 - INFO - main.py:139: HTTPException: /api/v1/rides | 400 | At least 1 photo is required.
+2026-05-11 11:23:21,640 - INFO - main.py:142: [ERROR] - An error occured | 400: At least 1 photo is required., <class 'fastapi.exceptions.HTTPException'> 400: At least 1 photo is required. line 42
+2026-05-11 11:23:21,640 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 400 - 1.873s
+2026-05-11 11:40:37,909 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides HTTP/1.1" 200 - 0.000s
+2026-05-11 11:41:19,594 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 41.681s
+2026-05-11 11:49:30,618 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 11:49:30,619 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.002s
+2026-05-11 11:49:42,316 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 11.695s
+2026-05-11 11:49:50,145 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 7.827s
+2026-05-11 11:59:28,471 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 13.392s
+2026-05-11 12:01:27,164 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.006s
+2026-05-11 12:01:27,166 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.006s
+2026-05-11 12:01:27,167 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.002s
+2026-05-11 12:01:27,168 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.003s
+2026-05-11 12:01:27,187 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:01:27,187 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:01:27,189 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.017s
+2026-05-11 12:01:27,199 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:01:27,199 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:01:27,199 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.000s
+2026-05-11 12:01:28,136 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:01:29,907 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.720s
+2026-05-11 12:01:29,912 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 12:01:30,584 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.670s
+2026-05-11 12:01:32,793 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:01:33,768 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 6.579s
+2026-05-11 12:01:34,303 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.533s
+2026-05-11 12:01:37,720 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:01:37,721 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:01:37,721 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 12:01:37,723 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:01:37,723 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:01:37,723 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 12:01:38,554 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:01:38,939 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:01:39,647 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.926s
+2026-05-11 12:01:39,909 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.188s
+2026-05-11 12:01:40,182 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.532s
+2026-05-11 12:01:41,243 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 1.060s
+2026-05-11 12:42:45,349 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 12:42:45,350 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 12:42:45,351 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 12:42:45,351 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 12:42:45,352 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:42:45,352 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:42:45,353 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 12:42:45,357 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:42:45,357 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:42:45,358 - INFO - main.py:207: Exception occured | /api/v1/auth/refresh | 500
+2026-05-11 12:42:45,358 - INFO - main.py:208: [ERROR] - An error occured | (sqlalchemy.dialects.postgresql.asyncpg.InterfaceError) <class 'asyncpg.exceptions._base.InterfaceError'>: connection is closed
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('06a01a856d7e755380003bc297fa7232',)]
+(Background on this error at: https://sqlalche.me/e/20/rvf5), <class 'sqlalchemy.exc.InterfaceError'> (sqlalchemy.dialects.postgresql.asyncpg.InterfaceError) <class 'asyncpg.exceptions._base.InterfaceError'>: connection is closed
+[SQL: SELECT users.first_name, users.last_name, users.username, users.email, users.hashed_password, users.is_active, users.is_verified, users.role, users.phone_number, users.avatar_url, users.hashed_refresh_token, users.hashed_reset_token, users.reset_token_expires_at, users.id, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = $1::VARCHAR]
+[parameters: ('06a01a856d7e755380003bc297fa7232',)]
+(Background on this error at: https://sqlalche.me/e/20/rvf5) 164
+2026-05-11 12:42:45,378 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.021s
+2026-05-11 12:42:49,865 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:42:50,825 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 5.473s
+2026-05-11 12:42:50,829 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 12:42:54,670 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 3.840s
+2026-05-11 12:45:16,988 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:45:16,988 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:45:16,989 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 12:45:16,993 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 12:45:16,994 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 12:45:16,994 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 12:45:17,882 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:45:18,273 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 12:45:19,288 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.299s
+2026-05-11 12:45:19,697 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.709s
+2026-05-11 12:45:20,107 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.817s
+2026-05-11 12:45:20,927 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.820s
+2026-05-11 13:10:45,144 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:10:45,145 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 13:10:48,928 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 3.782s
+2026-05-11 13:10:53,117 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:10:53,118 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:10:53,118 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 13:10:53,119 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 13:10:53,120 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 13:10:53,121 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:10:53,121 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:10:53,121 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 13:10:53,870 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:10:54,630 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.510s
+2026-05-11 13:10:54,632 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:10:55,540 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.908s
+2026-05-11 13:10:58,738 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:10:59,715 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 6.594s
+2026-05-11 13:11:00,402 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.683s
+2026-05-11 13:29:43,440 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:29:43,441 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 13:29:43,441 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 13:29:43,441 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 13:29:43,443 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:29:43,443 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:29:43,453 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.010s
+2026-05-11 13:29:43,454 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:29:43,454 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:29:43,455 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.000s
+2026-05-11 13:29:51,064 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:29:52,006 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 8.564s
+2026-05-11 13:29:52,012 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:29:52,545 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.532s
+2026-05-11 13:29:52,993 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:29:53,963 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 10.521s
+2026-05-11 13:29:54,573 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.605s
+2026-05-11 13:30:01,122 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:30:01,122 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:30:01,122 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 13:30:01,125 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:30:01,125 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:30:01,125 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.000s
+2026-05-11 13:30:02,808 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:30:03,198 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:30:03,734 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.613s
+2026-05-11 13:30:03,989 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.867s
+2026-05-11 13:30:04,280 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.545s
+2026-05-11 13:30:04,964 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.683s
+2026-05-11 13:30:06,290 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:30:06,290 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:30:10,454 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 4.164s
+2026-05-11 13:30:14,363 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 3.907s
+2026-05-11 13:48:36,269 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 13:48:36,270 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.002s
+2026-05-11 13:48:36,271 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.003s
+2026-05-11 13:48:36,272 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.003s
+2026-05-11 13:48:36,273 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:48:36,273 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:48:36,273 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.001s
+2026-05-11 13:48:36,279 - INFO - main.py:139: HTTPException: /api/v1/rides/me | 403 | Not authenticated
+2026-05-11 13:48:36,279 - INFO - main.py:142: [ERROR] - An error occured | 403: Not authenticated, <class 'fastapi.exceptions.HTTPException'> 403: Not authenticated line 42
+2026-05-11 13:48:36,280 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 403 - 0.005s
+2026-05-11 13:48:37,143 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:48:37,511 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 13:48:38,069 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.796s
+2026-05-11 13:48:38,071 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 13:48:38,419 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.146s
+2026-05-11 13:48:38,704 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.632s
+2026-05-11 13:48:39,340 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.634s
+2026-05-11 14:47:27,428 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.001s
+2026-05-11 14:47:27,431 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides/me HTTP/1.1" 200 - 0.003s
+2026-05-11 14:47:28,859 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.427s
+2026-05-11 14:47:30,708 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.848s
+2026-05-11 14:48:21,526 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.100s
+2026-05-11 14:48:22,669 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.141s
+2026-05-11 14:53:24,831 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.001s
+2026-05-11 14:53:24,833 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.002s
+2026-05-11 14:53:25,604 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 14:53:25,986 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 14:53:26,503 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.670s
+2026-05-11 14:53:26,505 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-11 14:53:26,799 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 1.966s
+2026-05-11 14:53:27,062 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.557s
+2026-05-11 14:53:27,634 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.571s
+2026-05-11 14:53:35,158 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 8.091s
+2026-05-11 14:53:36,319 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.159s
+2026-05-11 14:53:37,553 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.233s
+2026-05-11 14:53:47,871 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.512s
+2026-05-11 14:53:49,123 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.250s
+2026-05-11 14:54:53,645 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/rides HTTP/1.1" 200 - 0.000s
+2026-05-11 14:55:06,330 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/rides HTTP/1.1" 201 - 12.683s
+2026-05-11 14:55:17,799 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 3.173s
+2026-05-11 14:55:19,276 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.473s
+2026-05-11 14:55:37,247 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 14:55:37,629 - INFO - auth.py:173: Refresh token rotated for user id=06a01a856d7e755380003bc297fa7232
+2026-05-11 14:55:38,495 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.183s
+2026-05-11 14:55:38,763 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 200 - 2.453s
+2026-05-11 14:55:39,097 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.601s
+2026-05-11 14:55:39,675 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.577s
+2026-05-11 14:55:40,499 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.379s
+2026-05-11 14:55:41,759 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.259s
+2026-05-11 14:55:43,356 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.596s

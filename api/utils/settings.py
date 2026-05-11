@@ -56,6 +56,13 @@ class Settings(BaseSettings):
     MINIO_ACCESS_KEY: str = config("MINIO_ACCESS_KEY")
     MINIO_SECRET_KEY: str = config("MINIO_SECRET_KEY")
 
+    CLOUDINARY_CLOUD_NAME: str = config("CLOUDINARY_CLOUD_NAME", default="")
+    CLOUDINARY_API_KEY: str = config("CLOUDINARY_API_KEY", default="")
+    CLOUDINARY_API_SECRET: str = config("CLOUDINARY_API_SECRET", default="")
+    CLOUDINARY_FOLDER: str = config("CLOUDINARY_FOLDER", default="smashapartment")
+    
+    VAT_PERCENTAGE: float = config("VAT_PERCENTAGE", cast=float, default=7.5)
+
     YOUTUBE_USERNAME: str = config("YOUTUBE_USERNAME")
     YOUTUBE_PASSWORD: str = config("YOUTUBE_PASSWORD")
 
