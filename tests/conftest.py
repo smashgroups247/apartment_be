@@ -1,67 +1,46 @@
-"""
-Pytest Configuration and Fixtures
-File: tests/conftest.py
-"""
-
-import sys
-import os
 import pytest
-from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import StaticPool
-
-# Add project root to Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+import pytest_asyncio
+from httpx import AsyncClient
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 from api.db.database import Base, get_db
-from main import app  # Adjust if your main app file has a different name
+from main import app
 
+# Use an in-memory SQLite database for testing, with aiosqlite for async
+SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 
-# Create in-memory SQLite database for testing
-SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
-
-engine = create_engine(
+engine = create_async_engine(
     SQLALCHEMY_DATABASE_URL,
     connect_args={"check_same_thread": False},
-    poolclass=StaticPool,
 )
 
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+TestingSessionLocal = async_sessionmaker(autocommit=False, autoflush=False, bind=engine, class_=AsyncSession, expire_on_commit=False)
 
-
-@pytest.fixture(scope="function")
-def session():
+@pytest_asyncio.fixture(scope="function")
+async def session():
     """
     Create a fresh database session for each test
     """
-    # Create all tables
-    Base.metadata.create_all(bind=engine)
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+        await conn.run_sync(Base.metadata.create_all)
 
-    db = TestingSessionLocal()
-    try:
+    async with TestingSessionLocal() as db:
         yield db
-    finally:
-        db.close()
-        # Drop all tables after test
-        Base.metadata.drop_all(bind=engine)
 
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
 
-@pytest.fixture(scope="function")
-def client(session):
+@pytest_asyncio.fixture(scope="function")
+async def client(session):
     """
     Create a test client with database session override
     """
-
-    def override_get_db():
-        try:
-            yield session
-        finally:
-            pass
+    async def override_get_db():
+        yield session
 
     app.dependency_overrides[get_db] = override_get_db
 
-    with TestClient(app) as test_client:
+    async with AsyncClient(app=app, base_url="http://test") as test_client:
         yield test_client
 
     app.dependency_overrides.clear()
