@@ -182,3 +182,7 @@ tmp
 google_secret.json
 youtube_cookies.txt
 youtube_cookies_copy.txt
+
+# Logs
+logs/
+*.log
