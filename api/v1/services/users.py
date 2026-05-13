@@ -112,19 +112,23 @@ class UserService:
         app_logger.info(f"Password changed for user id={user.id}")
 
     # -----------------------------------------------------------------------
-    # Upload Avatar — Cloudinary
+    # Upload Avatar — Cloudinary (with Base64 fallback)
     # -----------------------------------------------------------------------
 
     async def upload_avatar(
         self, file: UploadFile, user: User, db: AsyncSession
     ) -> User:
         """
-        Validate the image and upload to Cloudinary.
+        Validate the image then:
+        - Upload to Cloudinary if credentials are configured, OR
+        - Encode as Base64 data URL and store directly (fallback).
 
         Raises:
             HTTPException 400 – invalid file format or exceeds size limit.
-            HTTPException 502 - Cloudinary upload failure.
+            HTTPException 502 - Cloudinary upload failure (only when Cloudinary is configured).
         """
+        from api.utils.settings import settings
+
         # Validate extension
         file_ext = file.filename.split(".")[-1].lower() if file.filename else ""
         if file_ext not in AVATAR_ALLOWED_EXTENSIONS:
@@ -133,32 +137,57 @@ class UserService:
                 detail=f"Invalid file format. Allowed: {', '.join(AVATAR_ALLOWED_EXTENSIONS)}",
             )
 
+        # Read file bytes (needed for both paths)
+        content = await file.read()
+
         # Validate file size
-        file.file.seek(0, 2)
-        file_size = file.file.tell()
-        file.file.seek(0)
-        
-        size_mb = file_size / (1024 * 1024)
+        size_mb = len(content) / (1024 * 1024)
         if size_mb > AVATAR_MAX_SIZE_MB:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail=f"File too large. Maximum size is {AVATAR_MAX_SIZE_MB}MB.",
             )
 
-        from api.utils.cloudinary_service import cloudinary_service
-
-        upload_result = await cloudinary_service.upload_media(
-            file=file,
-            folder=f"avatars/{user.id}",
-            resource_type="image",
+        cloudinary_configured = bool(
+            settings.CLOUDINARY_CLOUD_NAME and 
+            settings.CLOUDINARY_API_KEY and
+            settings.CLOUDINARY_API_SECRET
         )
 
+        if cloudinary_configured:
+            # --- Cloudinary path ---
+            import io
+
+            # Re-wrap the already-read bytes so cloudinary_service can call file.read() again.
+            file.file = io.BytesIO(content)
+
+            from api.utils.cloudinary_service import cloudinary_service
+            upload_result = await cloudinary_service.upload_media(
+                file=file,
+                folder=f"avatars/{user.id}",
+                resource_type="image",
+            )
+            avatar_url = upload_result["url"]
+            app_logger.info(f"Avatar uploaded (cloudinary) for user id={user.id}")
+        else:
+            # --- Base64 fallback path ---
+            mime_map = {
+                "jpg": "image/jpeg",
+                "jpeg": "image/jpeg",
+                "png": "image/png",
+                "webp": "image/webp",
+            }
+            mime_type = mime_map.get(file_ext, "image/jpeg")
+            base64_str = base64.b64encode(content).decode("utf-8")
+            avatar_url = f"data:{mime_type};base64,{base64_str}"
+            app_logger.info(
+                f"Avatar uploaded (base64 fallback) for user id={user.id}"
+            )
+
         # Persist to DB
-        user.avatar_url = upload_result["url"]
+        user.avatar_url = avatar_url
         await db.commit()
         await db.refresh(user)
-
-        app_logger.info(f"Avatar uploaded (cloudinary) for user id={user.id}")
         return user
 
     # -----------------------------------------------------------------------

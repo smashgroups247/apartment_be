@@ -59,10 +59,11 @@ class CloudinaryService:
                 "format": result.get("format"),
             }
         except Exception as e:
-            app_logger.error(f"Cloudinary upload failed: {str(e)}")
+            error_msg = str(e)
+            app_logger.error(f"Cloudinary upload failed: {error_msg}")
             raise HTTPException(
                 status_code=status.HTTP_502_BAD_GATEWAY,
-                detail="Failed to upload media to Cloudinary.",
+                detail=f"Cloudinary upload failed: {error_msg}",
             )
 
 cloudinary_service = CloudinaryService()

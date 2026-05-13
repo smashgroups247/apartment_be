@@ -4137,3 +4137,28 @@ WHERE users.id = $1::VARCHAR]
 2026-05-11 14:55:40,499 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.379s
 2026-05-11 14:55:41,759 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.259s
 2026-05-11 14:55:43,356 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/rides/me HTTP/1.1" 200 - 1.596s
+2026-05-13 09:52:24,400 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.002s
+2026-05-13 09:52:24,404 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 - 0.005s
+2026-05-13 09:52:24,477 - INFO - main.py:139: HTTPException: /api/v1/auth/refresh | 401 | Invalid or expired refresh token.
+2026-05-13 09:52:24,478 - INFO - main.py:142: [ERROR] - An error occured | 401: Invalid or expired refresh token., <class 'fastapi.exceptions.HTTPException'> 401: Invalid or expired refresh token. line 42
+2026-05-13 09:52:24,482 - INFO - main.py:139: HTTPException: /api/v1/auth/refresh | 401 | Invalid or expired refresh token.
+2026-05-13 09:52:24,482 - INFO - main.py:142: [ERROR] - An error occured | 401: Invalid or expired refresh token., <class 'fastapi.exceptions.HTTPException'> 401: Invalid or expired refresh token. line 42
+2026-05-13 09:52:24,489 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 401 - 0.081s
+2026-05-13 09:52:24,530 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/refresh HTTP/1.1" 401 - 0.118s
+2026-05-13 09:52:52,040 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 - 0.000s
+2026-05-13 09:52:58,001 - INFO - auth.py:123: User logged in: alaminjibrilsani@gmail.com (id=06a043479f9b7ca180005d2d53cda7ef)
+2026-05-13 09:52:59,320 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/auth/login HTTP/1.1" 200 - 7.276s
+2026-05-13 09:52:59,325 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 - 0.000s
+2026-05-13 09:53:00,195 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.865s
+2026-05-13 09:53:18,647 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/users/upload-avatar HTTP/1.1" 200 - 0.000s
+2026-05-13 09:53:22,453 - INFO - users.py:171: Avatar uploaded (cloudinary) for user id=06a043479f9b7ca180005d2d53cda7ef
+2026-05-13 09:53:23,889 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-avatar HTTP/1.1" 200 - 5.234s
+2026-05-13 09:53:26,950 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 3.052s
+2026-05-13 09:54:23,832 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/users/update HTTP/1.1" 200 - 0.000s
+2026-05-13 09:54:25,819 - INFO - users.py:77: Profile updated for user id=06a043479f9b7ca180005d2d53cda7ef | fields=['address']
+2026-05-13 09:54:25,820 - INFO - main.py:105: 127.0.0.1 - "PUT /api/v1/users/update HTTP/1.1" 200 - 1.986s
+2026-05-13 09:54:26,395 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 0.570s
+2026-05-13 09:57:32,812 - INFO - main.py:105: 127.0.0.1 - "OPTIONS /api/v1/users/upload-id HTTP/1.1" 200 - 0.000s
+2026-05-13 09:57:36,307 - INFO - users.py:240: ID verification uploaded (base64) for user id=06a043479f9b7ca180005d2d53cda7ef
+2026-05-13 09:57:36,310 - INFO - main.py:105: 127.0.0.1 - "POST /api/v1/users/upload-id HTTP/1.1" 200 - 3.495s
+2026-05-13 09:57:37,634 - INFO - main.py:105: 127.0.0.1 - "GET /api/v1/auth/me HTTP/1.1" 200 - 1.319s
