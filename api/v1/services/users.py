@@ -168,6 +168,57 @@ class UserService:
         app_logger.info(f"Avatar uploaded (base64) for user id={user.id}")
         return user
 
+    # -----------------------------------------------------------------------
+    # Upload ID Verification — Base64
+    # -----------------------------------------------------------------------
+
+    async def upload_id_verification(
+        self, file: UploadFile, user: User, db: AsyncSession
+    ) -> User:
+        """
+        Validate the ID document, encode as Base64, and save directly to id_verification_url.
+        """
+        # Validate extension (allowing PDF for ID too)
+        allowed = AVATAR_ALLOWED_EXTENSIONS + ["pdf"]
+        file_ext = file.filename.split(".")[-1].lower() if file.filename else ""
+        if file_ext not in allowed:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Invalid file format. Allowed: {', '.join(allowed)}",
+            )
+
+        # Read file bytes
+        content = await file.read()
+
+        # Validate file size
+        size_mb = len(content) / (1024 * 1024)
+        if size_mb > AVATAR_MAX_SIZE_MB:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"File too large. Maximum size is {AVATAR_MAX_SIZE_MB}MB.",
+            )
+
+        # Encode to Base64 data URL
+        mime_map = {
+            "jpg": "image/jpeg",
+            "jpeg": "image/jpeg",
+            "png": "image/png",
+            "webp": "image/webp",
+            "pdf": "application/pdf",
+        }
+        mime_type = mime_map.get(file_ext, "image/jpeg")
+        base64_str = base64.b64encode(content).decode("utf-8")
+        data_url = f"data:{mime_type};base64,{base64_str}"
+
+        # Persist to DB
+        user.id_verification_url = data_url
+        await db.commit()
+        await db.refresh(user)
+
+        app_logger.info(f"ID verification uploaded (base64) for user id={user.id}")
+        return user
+
+
 
 # Singleton
 user_service = UserService()

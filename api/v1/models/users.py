@@ -18,7 +18,10 @@ class User(BaseTableModel):
 
     # NEW: account management fields
     phone_number = Column(String(20), nullable=True)
+    address = Column(Text, nullable=True)
     avatar_url = Column(Text, nullable=True)
+    id_verification_url = Column(Text, nullable=True)
+
 
     hashed_refresh_token = Column(Text, nullable=True)
     hashed_reset_token = Column(Text, nullable=True)
