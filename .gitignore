@@ -185,4 +185,4 @@ youtube_cookies_copy.txt
 
 # Logs
 logs/
-*.log
+*.loglogs/app_logs.log
