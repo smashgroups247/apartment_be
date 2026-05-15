@@ -22,6 +22,8 @@ class UpdateProfileRequest(BaseModel):
     username: Optional[str] = Field(None, min_length=3, max_length=100)
     email: Optional[EmailStr] = Field(None)
     phone_number: Optional[str] = Field(None, max_length=20)
+    address: Optional[str] = Field(None)
+
 
     @field_validator("username")
     @classmethod
@@ -89,10 +91,13 @@ class UserProfileResponse(BaseModel):
     username: Optional[str]
     email: str
     phone_number: Optional[str]
+    address: Optional[str]
     avatar_url: Optional[str]
+    id_verification_url: Optional[str]
     is_active: bool
     is_verified: bool
     role: str
+
     created_at: datetime
     updated_at: datetime
 

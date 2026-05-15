@@ -136,3 +136,33 @@ async def upload_avatar(
         message="Avatar uploaded successfully.",
         data=UserProfileResponse.model_validate(updated_user).model_dump(),
     )
+
+
+# ---------------------------------------------------------------------------
+# POST /users/upload-id
+# ---------------------------------------------------------------------------
+
+@users.post(
+    "/upload-id",
+    status_code=status.HTTP_200_OK,
+    summary="Upload ID verification document",
+    response_model=None,
+)
+async def upload_id(
+    file: UploadFile = File(..., description="ID document: jpg, jpeg, png, webp, pdf. Max 5MB."),
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Upload an identity verification document. Accepted formats: jpg, jpeg, png, webp, pdf.
+    Maximum file size: 5MB. Returns the updated user profile with the new id_verification_url.
+    """
+    updated_user = await user_service.upload_id_verification(
+        file=file, user=current_user, db=db
+    )
+    return success_response(
+        status_code=status.HTTP_200_OK,
+        message="ID verification document uploaded successfully.",
+        data=UserProfileResponse.model_validate(updated_user).model_dump(),
+    )
+
