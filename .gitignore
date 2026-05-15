@@ -177,8 +177,8 @@ cython_debug/
 #.idea/
 
 test_case1.py
-
 tmp
 google_secret.json
 youtube_cookies.txt
 youtube_cookies_copy.txt
+logs/*.log
