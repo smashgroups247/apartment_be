@@ -34,58 +34,62 @@ class RideService:
         return ride
 
     async def create_ride(
-        self, schema: RideCreate, files: List[UploadFile], user: User, db: AsyncSession
+        self, schema: RideCreate, files: List[UploadFile], user: User, db: AsyncSession,
+        photo_urls: List[str] = None, video_url: str = None
     ) -> Ride:
-        # Validate files
+        # Determine if we have pre-uploaded URLs or raw files
+        has_url_photos = photo_urls and len(photo_urls) > 0
+
+        # Validate files only if no pre-uploaded URLs
         images = []
         videos = []
-        for file in files:
-            if not file.filename:
-                continue
-            ext = file.filename.split(".")[-1].lower()
-            
-            # Check size
-            file.file.seek(0, 2)
-            file_size = file.file.tell()
-            file.file.seek(0)
-            size_mb = file_size / (1024 * 1024)
+        if not has_url_photos:
+            for file in files:
+                if not file.filename:
+                    continue
+                ext = file.filename.split(".")[-1].lower()
+                
+                # Check size
+                file.file.seek(0, 2)
+                file_size = file.file.tell()
+                file.file.seek(0)
+                size_mb = file_size / (1024 * 1024)
 
-            if ext in ALLOWED_IMAGE_EXTS:
-                if size_mb > MAX_IMAGE_SIZE_MB:
+                if ext in ALLOWED_IMAGE_EXTS:
+                    if size_mb > MAX_IMAGE_SIZE_MB:
+                        raise HTTPException(
+                            status_code=status.HTTP_400_BAD_REQUEST,
+                            detail=f"Image {file.filename} is too large. Max {MAX_IMAGE_SIZE_MB}MB."
+                        )
+                    images.append(file)
+                elif ext in ALLOWED_VIDEO_EXTS:
+                    if size_mb > MAX_VIDEO_SIZE_MB:
+                        raise HTTPException(
+                            status_code=status.HTTP_400_BAD_REQUEST,
+                            detail=f"Video {file.filename} is too large. Max {MAX_VIDEO_SIZE_MB}MB."
+                        )
+                    videos.append(file)
+                else:
                     raise HTTPException(
                         status_code=status.HTTP_400_BAD_REQUEST,
-                        detail=f"Image {file.filename} is too large. Max {MAX_IMAGE_SIZE_MB}MB."
+                        detail=f"Invalid file format: {file.filename}"
                     )
-                images.append(file)
-            elif ext in ALLOWED_VIDEO_EXTS:
-                # Video duration is not available from raw file object here. Rely on Cloudinary or just size.
-                if size_mb > MAX_VIDEO_SIZE_MB:
-                    raise HTTPException(
-                        status_code=status.HTTP_400_BAD_REQUEST,
-                        detail=f"Video {file.filename} is too large. Max {MAX_VIDEO_SIZE_MB}MB."
-                    )
-                videos.append(file)
-            else:
+
+            if not images:
                 raise HTTPException(
                     status_code=status.HTTP_400_BAD_REQUEST,
-                    detail=f"Invalid file format: {file.filename}"
+                    detail="At least 1 photo is required."
                 )
-
-        if not images:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="At least 1 photo is required."
-            )
-        if len(images) > 5:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Maximum of 5 photos allowed."
-            )
-        if len(videos) > 1:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Maximum of 1 video allowed."
-            )
+            if len(images) > 5:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Maximum of 5 photos allowed."
+                )
+            if len(videos) > 1:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Maximum of 1 video allowed."
+                )
 
         # Check for duplicates manually before DB
         result = await db.execute(
@@ -129,43 +133,72 @@ class RideService:
                 detail="You have already listed a similar ride at this location."
             )
 
-        # Upload files and create RideMedia
+        # Create media records
         media_records = []
         pos = 0
-        for img in images:
-            upload_result = await cloudinary_service.upload_media(
-                file=img,
-                folder=f"rides/{user.id}/photos",
-                resource_type="image"
-            )
-            media_records.append(RideMedia(
-                ride_id=new_ride.id,
-                media_type="image",
-                url=upload_result["url"],
-                public_id=upload_result["public_id"],
-                resource_type=upload_result.get("resource_type"),
-                format=upload_result.get("format"),
-                position=pos
-            ))
-            pos += 1
-            
-        for vid in videos:
-            upload_result = await cloudinary_service.upload_media(
-                file=vid,
-                folder=f"rides/{user.id}/videos",
-                resource_type="video"
-            )
-            # Check duration from cloudinary if available, else skip. (TODO: Add duration check)
-            media_records.append(RideMedia(
-                ride_id=new_ride.id,
-                media_type="video",
-                url=upload_result["url"],
-                public_id=upload_result["public_id"],
-                resource_type=upload_result.get("resource_type"),
-                format=upload_result.get("format"),
-                position=pos
-            ))
-            pos += 1
+
+        if has_url_photos:
+            # Pre-uploaded Cloudinary URLs
+            for url in photo_urls:
+                if url and isinstance(url, str) and url.startswith("http"):
+                    media_records.append(RideMedia(
+                        ride_id=new_ride.id,
+                        media_type="image",
+                        url=url,
+                        public_id=None,
+                        resource_type="image",
+                        format=url.split(".")[-1] if "." in url else "jpg",
+                        position=pos
+                    ))
+                    pos += 1
+
+            # Handle pre-uploaded video URL
+            if video_url and video_url.startswith("http"):
+                media_records.append(RideMedia(
+                    ride_id=new_ride.id,
+                    media_type="video",
+                    url=video_url,
+                    public_id=None,
+                    resource_type="video",
+                    format=video_url.split(".")[-1] if "." in video_url else "mp4",
+                    position=pos
+                ))
+                pos += 1
+        else:
+            # Upload files to Cloudinary
+            for img in images:
+                upload_result = await cloudinary_service.upload_media(
+                    file=img,
+                    folder=f"rides/{user.id}/photos",
+                    resource_type="image"
+                )
+                media_records.append(RideMedia(
+                    ride_id=new_ride.id,
+                    media_type="image",
+                    url=upload_result["url"],
+                    public_id=upload_result["public_id"],
+                    resource_type=upload_result.get("resource_type"),
+                    format=upload_result.get("format"),
+                    position=pos
+                ))
+                pos += 1
+                
+            for vid in videos:
+                upload_result = await cloudinary_service.upload_media(
+                    file=vid,
+                    folder=f"rides/{user.id}/videos",
+                    resource_type="video"
+                )
+                media_records.append(RideMedia(
+                    ride_id=new_ride.id,
+                    media_type="video",
+                    url=upload_result["url"],
+                    public_id=upload_result["public_id"],
+                    resource_type=upload_result.get("resource_type"),
+                    format=upload_result.get("format"),
+                    position=pos
+                ))
+                pos += 1
 
         db.add_all(media_records)
         await db.commit()
@@ -234,5 +267,16 @@ class RideService:
         await db.commit()
         await db.refresh(ride)
         return self.compute_vat(ride)
+
+    async def get_all_published_rides(self, db: AsyncSession) -> List[Ride]:
+        """Fetch all rides with status 'published' (public, no auth required)."""
+        result = await db.execute(
+            select(Ride)
+            .options(selectinload(Ride.media))
+            .filter(Ride.status == RideStatus.published)
+            .order_by(Ride.created_at.desc())
+        )
+        rides = result.scalars().all()
+        return [self.compute_vat(r) for r in rides]
 
 ride_service = RideService()

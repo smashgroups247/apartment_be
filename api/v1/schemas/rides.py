@@ -12,7 +12,7 @@ class RideMediaResponse(BaseModel):
     id: str
     media_type: str
     url: str
-    public_id: str
+    public_id: Optional[str] = None
     resource_type: Optional[str] = None
     format: Optional[str] = None
     position: int

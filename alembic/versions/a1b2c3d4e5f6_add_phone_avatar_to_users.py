@@ -13,6 +13,7 @@ INSTRUCTIONS:
 from typing import Sequence, Union
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy.engine.reflection import Inspector
 
 revision: str = "a1b2c3d4e5f6"
 down_revision: Union[str, None] = "22962e293a83"
@@ -21,8 +22,14 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    op.add_column("users", sa.Column("phone_number", sa.String(length=20), nullable=True))
-    op.add_column("users", sa.Column("avatar_url", sa.Text(), nullable=True))
+    inspector = Inspector.from_engine(op.get_bind())
+    existing_columns = [col["name"] for col in inspector.get_columns("users")]
+
+    if "phone_number" not in existing_columns:
+        op.add_column("users", sa.Column("phone_number", sa.String(length=20), nullable=True))
+
+    if "avatar_url" not in existing_columns:
+        op.add_column("users", sa.Column("avatar_url", sa.Text(), nullable=True))
 
 
 def downgrade() -> None:

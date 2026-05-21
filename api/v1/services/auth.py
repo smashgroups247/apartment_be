@@ -76,12 +76,13 @@ class AuthService:
             username=schema.username.lower() if schema.username else None,
             email=schema.email.lower(),
             hashed_password=hash_password(schema.password),
+            role=schema.role or "user",
         )
         db.add(user)
         await db.commit()
         await db.refresh(user)
 
-        app_logger.info(f"New user registered: {user.email} (id={user.id})")
+        app_logger.info(f"New user registered: {user.email} (id={user.id}, role={user.role})")
 
         # Issue tokens
         return await self._issue_token_pair(user=user, db=db)

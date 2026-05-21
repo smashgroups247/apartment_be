@@ -23,6 +23,15 @@ class UserRegisterRequest(BaseModel):
     username: Optional[str] = Field(None, min_length=3, max_length=100, examples=["johndoe"])
     email: EmailStr = Field(..., examples=["john@example.com"])
     password: str = Field(..., min_length=8, max_length=128, examples=["Str0ng!Pass"])
+    role: Optional[str] = Field("user", description="User role: 'user' or 'vendor'", examples=["user"])
+
+    @field_validator("role")
+    @classmethod
+    def validate_role(cls, v: Optional[str]) -> str:
+        allowed = {"user", "vendor"}
+        if v and v.lower() not in allowed:
+            raise ValueError(f"Role must be one of: {', '.join(sorted(allowed))}")
+        return (v or "user").lower()
 
     @field_validator("password")
     @classmethod
@@ -164,6 +173,8 @@ class UserResponse(BaseModel):
     is_active: bool
     is_verified: bool
     role: str
+    vendor_verified: bool = False
+    id_verification_status: str = "none"
     created_at: datetime
     updated_at: datetime
 

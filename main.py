@@ -50,7 +50,11 @@ origins = [
     "http://localhost:3001",
     "http://localhost:5173",
     "http://localhost:5174",
-    "*",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+    "http://127.0.0.1:7001",
 ]
 
 
@@ -68,6 +72,8 @@ class RequestCountMiddleware(BaseHTTPMiddleware):
         return response
 
 
+# Middleware order matters: last added = outermost = runs first
+# CORSMiddleware must be outermost so CORS headers are always set
 app.add_middleware(RequestCountMiddleware)
 app.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
 app.add_middleware(

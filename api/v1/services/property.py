@@ -95,5 +95,14 @@ class PropertyService:
         await db.commit()
         app_logger.info(f"Property deleted: id={property_id} user_id={user.id}")
 
+    async def get_all_active_properties(self, db: AsyncSession) -> List[Property]:
+        """Fetch all properties with status 'active' (public, no auth required)."""
+        result = await db.execute(
+            select(Property)
+            .filter(Property.status == "active")
+            .order_by(desc(Property.created_at))
+        )
+        return result.scalars().all()
+
 
 property_service = PropertyService()

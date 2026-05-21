@@ -97,6 +97,9 @@ class UserProfileResponse(BaseModel):
     is_active: bool
     is_verified: bool
     role: str
+    vendor_verified: bool = False
+    vendor_verified_at: Optional[datetime] = None
+    id_verification_status: str = "none"
 
     created_at: datetime
     updated_at: datetime

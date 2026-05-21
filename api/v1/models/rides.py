@@ -17,6 +17,9 @@ class RideStatus(str, enum.Enum):
     draft = "draft"
     published = "published"
     inactive = "inactive"
+    pending_approval = "pending_approval"
+    rejected = "rejected"
+    suspended = "suspended"
 
 class RideMedia(BaseTableModel):
     __tablename__ = "ride_media"
@@ -24,7 +27,7 @@ class RideMedia(BaseTableModel):
     ride_id = Column(String(36), ForeignKey("rides.id", ondelete="CASCADE"), nullable=False, index=True)
     media_type = Column(String(50), nullable=False) # 'image' or 'video'
     url = Column(String(255), nullable=False)
-    public_id = Column(String(255), nullable=False)
+    public_id = Column(String(255), nullable=True)
     resource_type = Column(String(50), nullable=True) # Cloudinary resource type
     format = Column(String(50), nullable=True) # File format (jpg, mp4, etc.)
     position = Column(Integer, default=0)
@@ -58,6 +61,9 @@ class Ride(BaseTableModel):
     
     # Status
     status = Column(Enum(RideStatus), default=RideStatus.published)
+
+    # Admin notes (rejection reason, etc.)
+    admin_notes = Column(Text, nullable=True)
 
     # Relationships
     media = relationship("RideMedia", back_populates="ride", cascade="all, delete-orphan", lazy="selectin")

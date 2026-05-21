@@ -47,6 +47,9 @@ class Property(BaseTableModel):
     # Status
     status = Column(String(50), nullable=False, default="active")
 
+    # Admin notes (rejection reason, etc.)
+    admin_notes = Column(Text, nullable=True)
+
     user = relationship("User", backref="properties")
 
     def __repr__(self):

@@ -40,6 +40,8 @@ async def create_ride(
     photos: Optional[List[UploadFile]] = File(None),
     images: Optional[List[UploadFile]] = File(None),
     video: Optional[UploadFile] = File(None),
+    photo_urls: Optional[str] = Form(None),  # JSON array of pre-uploaded Cloudinary URLs
+    video_url: Optional[str] = Form(None),   # Pre-uploaded Cloudinary video URL
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
@@ -112,14 +114,45 @@ async def create_ride(
             detail=error_msgs
         )
     
+    # Parse pre-uploaded URLs if provided
+    parsed_photo_urls = []
+    parsed_video_url = None
+    if photo_urls:
+        try:
+            parsed_photo_urls = json.loads(photo_urls)
+            if not isinstance(parsed_photo_urls, list):
+                parsed_photo_urls = []
+        except json.JSONDecodeError:
+            parsed_photo_urls = []
+    if video_url and video_url.strip():
+        parsed_video_url = video_url.strip()
+
     new_ride = await ride_service.create_ride(
-        schema=schema, files=files_list, user=current_user, db=db
+        schema=schema, files=files_list, user=current_user, db=db,
+        photo_urls=parsed_photo_urls, video_url=parsed_video_url
     )
     
     return success_response(
         status_code=status.HTTP_201_CREATED,
         message="Ride created successfully.",
         data=RideResponse.model_validate(new_ride).model_dump()
+    )
+
+@rides.get(
+    "/public",
+    status_code=status.HTTP_200_OK,
+    summary="Get all published rides (public, no auth)",
+    response_model=None,
+)
+async def get_public_rides(
+    db: AsyncSession = Depends(get_db),
+):
+    """Fetch all published ride listings for the public homepage."""
+    rides_list = await ride_service.get_all_published_rides(db=db)
+    return success_response(
+        status_code=status.HTTP_200_OK,
+        message="Public rides retrieved successfully.",
+        data=[RideResponse.model_validate(r).model_dump() for r in rides_list]
     )
 
 @rides.get(

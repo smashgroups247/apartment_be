@@ -92,6 +92,24 @@ async def create_property(
 
 
 # ---------------------------------------------------------------------------
+# GET /properties/public  — no authentication required (homepage listings)
+# ---------------------------------------------------------------------------
+
+@properties.get("/public", status_code=status.HTTP_200_OK, response_model=None)
+async def get_public_properties(
+    db: AsyncSession = Depends(get_db),
+):
+    """Fetch all active property listings for the public homepage."""
+    props = await property_service.get_all_active_properties(db=db)
+    data  = [PropertyResponse.model_validate(p).model_dump() for p in props]
+    return success_response(
+        status_code=200,
+        message="Public listings retrieved successfully.",
+        data={"total": len(data), "properties": data},
+    )
+
+
+# ---------------------------------------------------------------------------
 # GET /properties
 # ---------------------------------------------------------------------------
 

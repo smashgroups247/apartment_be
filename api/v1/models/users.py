@@ -14,18 +14,24 @@ class User(BaseTableModel):
     hashed_password = Column(Text, nullable=False)
     is_active = Column(Boolean, default=True, nullable=False)
     is_verified = Column(Boolean, default=False, nullable=False)
-    role = Column(String(50), default="user", nullable=False)
+    role = Column(String(50), default="user", nullable=False)  # "user" | "vendor" | "superadmin"
 
-    # NEW: account management fields
+    # Account management fields
     phone_number = Column(String(20), nullable=True)
     address = Column(Text, nullable=True)
     avatar_url = Column(Text, nullable=True)
     id_verification_url = Column(Text, nullable=True)
 
+    # Vendor verification fields (RBAC)
+    vendor_verified = Column(Boolean, default=False, nullable=False)
+    vendor_verified_at = Column(DateTime(timezone=True), nullable=True)
+    id_verification_status = Column(
+        String(50), default="none", nullable=False
+    )  # "none" | "pending" | "approved" | "rejected"
 
     hashed_refresh_token = Column(Text, nullable=True)
     hashed_reset_token = Column(Text, nullable=True)
     reset_token_expires_at = Column(DateTime(timezone=True), nullable=True)
 
     def __repr__(self) -> str:
-        return f"<User id={self.id} email={self.email}>"
+        return f"<User id={self.id} email={self.email} role={self.role}>"
