@@ -481,6 +481,7 @@ class AdminService:
                 "updated_at": ride.updated_at,
                 "owner_name": f"{owner.first_name} {owner.last_name}" if owner else None,
                 "owner_email": owner.email if owner else None,
+                "photos": [m.url for m in ride.media] if ride.media else [],
             }
             enriched.append(ride_dict)
 
@@ -518,6 +519,7 @@ class AdminService:
             "updated_at": ride.updated_at,
             "owner_name": f"{owner.first_name} {owner.last_name}" if owner else None,
             "owner_email": owner.email if owner else None,
+            "photos": [m.url for m in ride.media] if ride.media else [],
         }
 
     async def change_ride_status(

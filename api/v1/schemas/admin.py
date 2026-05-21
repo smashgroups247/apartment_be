@@ -179,6 +179,7 @@ class AdminRideResponse(BaseModel):
     # Owner info (populated by service)
     owner_name: Optional[str] = None
     owner_email: Optional[str] = None
+    photos: Optional[List[str]] = None
 
     model_config = {"from_attributes": True}
 
