@@ -20,6 +20,14 @@ from api.v1.models.property import Property
 from api.v1.models.rides import Ride, RideStatus
 from api.v1.models.support_ticket import SupportTicket
 
+PROPERTY_ALLOWED_STATUSES = {"pending_approval", "active", "rejected", "suspended"}
+PROPERTY_STATUS_TRANSITIONS = {
+    "pending_approval": {"active", "rejected"},
+    "active": {"suspended"},
+    "suspended": {"active"},
+    "rejected": {"active"},
+}
+
 
 class AdminService:
     """Service layer for superadmin dashboard operations."""
@@ -409,7 +417,29 @@ class AdminService:
                 status_code=status.HTTP_404_NOT_FOUND, detail="Property not found."
             )
 
-        old_status = prop.status
+        old_status = (prop.status or "").strip().lower()
+        new_status = (new_status or "").strip().lower()
+
+        if new_status not in PROPERTY_ALLOWED_STATUSES:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=(
+                    "Invalid status. Allowed values: "
+                    "pending_approval, active, rejected, suspended."
+                ),
+            )
+
+        allowed_next = PROPERTY_STATUS_TRANSITIONS.get(old_status, set())
+        if new_status not in allowed_next:
+            allowed_str = ", ".join(sorted(allowed_next)) if allowed_next else "none"
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=(
+                    f"Invalid status transition from '{old_status}' to '{new_status}'. "
+                    f"Allowed next statuses: {allowed_str}."
+                ),
+            )
+
         prop.status = new_status
         if admin_notes is not None and hasattr(prop, "admin_notes"):
             prop.admin_notes = admin_notes

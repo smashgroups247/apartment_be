@@ -19,7 +19,8 @@ from api.v1.schemas.admin import (
     AdminPropertyResponse,
     AdminRideResponse,
     AdminUserResponse,
-    ChangeListingStatusRequest,
+    ChangePropertyStatusRequest,
+    ChangeRideStatusRequest,
     ChangeTicketStatusRequest,
     ChangeUserRoleRequest,
     ChangeUserStatusRequest,
@@ -252,7 +253,7 @@ async def get_property_detail(
 )
 async def change_property_status(
     property_id: str,
-    schema: ChangeListingStatusRequest,
+    schema: ChangePropertyStatusRequest,
     current_user: User = Depends(require_superadmin),
     db: AsyncSession = Depends(get_db),
 ):
@@ -323,7 +324,7 @@ async def get_ride_detail(
 )
 async def change_ride_status(
     ride_id: str,
-    schema: ChangeListingStatusRequest,
+    schema: ChangeRideStatusRequest,
     current_user: User = Depends(require_superadmin),
     db: AsyncSession = Depends(get_db),
 ):

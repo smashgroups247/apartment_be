@@ -15,12 +15,21 @@ from api.v1.models.property import Property
 from api.v1.models.users import User
 from api.v1.schemas.property import CreatePropertyRequest
 
+PUBLIC_PROPERTY_STATUS = "active"
+PENDING_PROPERTY_STATUS = "pending_approval"
+
 
 class PropertyService:
 
     async def create_property(
         self, schema: CreatePropertyRequest, user: User, db: AsyncSession
     ) -> Property:
+        if user.role != "vendor" or not user.vendor_verified:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Only verified vendors can create property listings.",
+            )
+
         # Explicit duplicate check
         existing = await db.execute(
             select(Property).filter(
@@ -51,7 +60,7 @@ class PropertyService:
             payout_account = schema.payout_account,
             payout_bank    = schema.payout_bank,
             payout_name    = schema.payout_name,
-            status         = "active",
+            status         = PENDING_PROPERTY_STATUS,
         )
 
         db.add(prop)
@@ -99,7 +108,7 @@ class PropertyService:
         """Fetch all properties with status 'active' (public, no auth required)."""
         result = await db.execute(
             select(Property)
-            .filter(Property.status == "active")
+            .filter(Property.status == PUBLIC_PROPERTY_STATUS)
             .order_by(desc(Property.created_at))
         )
         return result.scalars().all()

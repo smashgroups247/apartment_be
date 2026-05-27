@@ -71,6 +71,7 @@ class PropertyResponse(BaseModel):
     payout_bank:    Optional[str]
     payout_name:    Optional[str]
     status:      str
+    admin_notes: Optional[str]
     created_at:  datetime
     updated_at:  datetime
 

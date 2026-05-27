@@ -58,8 +58,8 @@ class ChangeUserStatusRequest(BaseModel):
 # ---------------------------------------------------------------------------
 
 
-class ChangeListingStatusRequest(BaseModel):
-    """Change listing status (approve / reject / suspend)."""
+class ChangePropertyStatusRequest(BaseModel):
+    """Change property listing status."""
 
     status: str = Field(..., description="New status for the listing")
     admin_notes: Optional[str] = Field(None, max_length=2000, description="Admin notes / rejection reason")
@@ -67,7 +67,23 @@ class ChangeListingStatusRequest(BaseModel):
     @field_validator("status")
     @classmethod
     def validate_status(cls, v: str) -> str:
-        allowed = {"active", "pending_approval", "rejected", "suspended", "published", "inactive"}
+        allowed = {"active", "pending_approval", "rejected", "suspended"}
+        v = v.strip().lower()
+        if v not in allowed:
+            raise ValueError(f"Status must be one of: {', '.join(sorted(allowed))}")
+        return v
+
+
+class ChangeRideStatusRequest(BaseModel):
+    """Change ride listing status."""
+
+    status: str = Field(..., description="New status for the listing")
+    admin_notes: Optional[str] = Field(None, max_length=2000, description="Admin notes / rejection reason")
+
+    @field_validator("status")
+    @classmethod
+    def validate_status(cls, v: str) -> str:
+        allowed = {"active", "pending_approval", "rejected", "suspended", "published", "inactive", "draft"}
         v = v.strip().lower()
         if v not in allowed:
             raise ValueError(f"Status must be one of: {', '.join(sorted(allowed))}")

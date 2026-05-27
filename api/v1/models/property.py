@@ -3,7 +3,7 @@ Property Model
 File: api/v1/models/property.py
 """
 
-from sqlalchemy import Column, String, Text, Float, Integer, JSON, UniqueConstraint, ForeignKey
+from sqlalchemy import Column, String, Text, Float, Integer, JSON, UniqueConstraint, ForeignKey, text
 from sqlalchemy.orm import relationship
 from api.v1.models.base_model import BaseTableModel
 
@@ -45,7 +45,12 @@ class Property(BaseTableModel):
     payout_name    = Column(String(255), nullable=True)
 
     # Status
-    status = Column(String(50), nullable=False, default="active")
+    status = Column(
+        String(50),
+        nullable=False,
+        default="pending_approval",
+        server_default=text("'pending_approval'"),
+    )
 
     # Admin notes (rejection reason, etc.)
     admin_notes = Column(Text, nullable=True)

@@ -8,6 +8,7 @@ from typing import List
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from api.core.dependencies.rbac import require_vendor_or_admin, require_verified_vendor
 from api.db.database import get_db
 from api.utils.cloudinary_service import cloudinary_service
 from api.utils.jwt_handler import get_current_user
@@ -80,7 +81,7 @@ async def upload_media(
 @properties.post("", status_code=status.HTTP_201_CREATED, response_model=None)
 async def create_property(
     schema: CreatePropertyRequest,
-    current_user: User = Depends(get_current_user),
+    current_user: User = Depends(require_verified_vendor),
     db: AsyncSession = Depends(get_db),
 ):
     prop = await property_service.create_property(schema=schema, user=current_user, db=db)
@@ -115,7 +116,7 @@ async def get_public_properties(
 
 @properties.get("", status_code=status.HTTP_200_OK, response_model=None)
 async def get_properties(
-    current_user: User = Depends(get_current_user),
+    current_user: User = Depends(require_vendor_or_admin),
     db: AsyncSession = Depends(get_db),
 ):
     props = await property_service.get_user_properties(user=current_user, db=db)
