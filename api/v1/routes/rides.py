@@ -17,6 +17,13 @@ from api.v1.services.rides import ride_service
 
 rides = APIRouter(prefix="/rides", tags=["Rides"])
 
+
+def serialize_ride(ride):
+    """Call compute_vat before serializing to avoid missing field errors."""
+    ride_service.compute_vat(ride)
+    return RideResponse.model_validate(ride).model_dump()
+
+
 @rides.post(
     "",
     status_code=status.HTTP_201_CREATED,
@@ -35,40 +42,39 @@ async def create_ride(
     pickup_latitude: Optional[str] = Form(None),
     pickup_longitude: Optional[str] = Form(None),
     currency: str = Form("NGN"),
-    features: str = Form("[]"), # JSON array string of features
+    features: str = Form("[]"),
     files: Optional[List[UploadFile]] = File(None),
     photos: Optional[List[UploadFile]] = File(None),
     images: Optional[List[UploadFile]] = File(None),
     video: Optional[UploadFile] = File(None),
-    photo_urls: Optional[str] = Form(None),  # JSON array of pre-uploaded Cloudinary URLs
-    video_url: Optional[str] = Form(None),   # Pre-uploaded Cloudinary video URL
+    photo_urls: Optional[str] = Form(None),
+    video_url: Optional[str] = Form(None),
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    Create a new ride with media files (images/videos).
-    """
-    # Handle empty strings for floats
     parsed_lat = None
     if pickup_latitude and pickup_latitude.strip():
         try:
             parsed_lat = float(pickup_latitude)
         except ValueError:
             pass
-            
+
     parsed_lon = None
     if pickup_longitude and pickup_longitude.strip():
         try:
             parsed_lon = float(pickup_longitude)
         except ValueError:
             pass
-            
-    # Ensure files is a list and combine from possible frontend field names
+
     files_list = []
-    if files: files_list.extend(files)
-    if photos: files_list.extend(photos)
-    if images: files_list.extend(images)
-    if video: files_list.append(video)
+    if files:
+        files_list.extend(files)
+    if photos:
+        files_list.extend(photos)
+    if images:
+        files_list.extend(images)
+    if video:
+        files_list.append(video)
 
     try:
         raw_features = json.loads(features)
@@ -78,18 +84,19 @@ async def create_ride(
                 if isinstance(item, str):
                     features_list.append(item)
                 elif isinstance(item, dict):
-                    name = item.get("name") or item.get("label") or item.get("value")
-                    if name:
-                        features_list.append(str(name))
-                    else:
-                        features_list.append(json.dumps(item))
+                    name = item.get("name") or item.get(
+                        "label") or item.get("value")
+                    features_list.append(
+                        str(name) if name else json.dumps(item))
                 else:
                     features_list.append(str(item))
+        elif isinstance(raw_features, dict):
+            # Handle {"air_condition": true, "music": true} format from Postman
+            features_list = [k for k, v in raw_features.items() if v]
     except json.JSONDecodeError:
         features_list = []
 
     from pydantic import ValidationError
-    
     try:
         schema = RideCreate(
             ride_type=ride_type,
@@ -103,18 +110,14 @@ async def create_ride(
             infant_passenger_count=infant_passenger_count,
             price=price,
             currency=currency,
-            features=features_list
+            features=features_list,
         )
     except ValidationError as e:
-        # Pydantic e.errors() might contain non-serializable objects like ValueError.
-        # So we just parse the error messages cleanly.
-        error_msgs = [f"{err['loc']}: {err['msg']}" for err in e.errors()]
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=error_msgs
+            detail=[f"{err['loc']}: {err['msg']}" for err in e.errors()],
         )
-    
-    # Parse pre-uploaded URLs if provided
+
     parsed_photo_urls = []
     parsed_video_url = None
     if photo_urls:
@@ -129,14 +132,15 @@ async def create_ride(
 
     new_ride = await ride_service.create_ride(
         schema=schema, files=files_list, user=current_user, db=db,
-        photo_urls=parsed_photo_urls, video_url=parsed_video_url
+        photo_urls=parsed_photo_urls, video_url=parsed_video_url,
     )
-    
+
     return success_response(
         status_code=status.HTTP_201_CREATED,
         message="Ride created successfully.",
-        data=RideResponse.model_validate(new_ride).model_dump()
+        data=serialize_ride(new_ride),
     )
+
 
 @rides.get(
     "/public",
@@ -147,13 +151,13 @@ async def create_ride(
 async def get_public_rides(
     db: AsyncSession = Depends(get_db),
 ):
-    """Fetch all published ride listings for the public homepage."""
-    rides_list = await ride_service.get_all_published_rides(db=db)
+    rides_list = await ride_service.get_published_rides(db=db)
     return success_response(
         status_code=status.HTTP_200_OK,
         message="Public rides retrieved successfully.",
-        data=[RideResponse.model_validate(r).model_dump() for r in rides_list]
+        data=[serialize_ride(r) for r in rides_list],
     )
+
 
 @rides.get(
     "/me",
@@ -165,12 +169,13 @@ async def get_my_rides(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    rides_list = await ride_service.get_my_rides(user=current_user, db=db)
+    rides_list = await ride_service.get_user_rides(user=current_user, db=db)
     return success_response(
         status_code=status.HTTP_200_OK,
         message="Rides retrieved successfully.",
-        data=[RideResponse.model_validate(r).model_dump() for r in rides_list]
+        data=[serialize_ride(r) for r in rides_list],
     )
+
 
 @rides.get(
     "/{ride_id}",
@@ -186,8 +191,9 @@ async def get_ride(
     return success_response(
         status_code=status.HTTP_200_OK,
         message="Ride retrieved successfully.",
-        data=RideResponse.model_validate(ride).model_dump()
+        data=serialize_ride(ride),
     )
+
 
 @rides.put(
     "/{ride_id}",
@@ -205,8 +211,9 @@ async def update_ride(
     return success_response(
         status_code=status.HTTP_200_OK,
         message="Ride updated successfully.",
-        data=RideResponse.model_validate(ride).model_dump()
+        data=serialize_ride(ride),
     )
+
 
 @rides.delete(
     "/{ride_id}",
@@ -222,8 +229,9 @@ async def delete_ride(
     await ride_service.delete_ride(ride_id, current_user, db)
     return success_response(
         status_code=status.HTTP_200_OK,
-        message="Ride deleted successfully."
+        message="Ride deleted successfully.",
     )
+
 
 @rides.patch(
     "/{ride_id}/status",
@@ -241,5 +249,5 @@ async def update_ride_status(
     return success_response(
         status_code=status.HTTP_200_OK,
         message="Ride status updated successfully.",
-        data=RideResponse.model_validate(ride).model_dump()
+        data=serialize_ride(ride),
     )

@@ -24,7 +24,6 @@ class UpdateProfileRequest(BaseModel):
     phone_number: Optional[str] = Field(None, max_length=20)
     address: Optional[str] = Field(None)
 
-
     @field_validator("username")
     @classmethod
     def validate_username(cls, v: Optional[str]) -> Optional[str]:
@@ -103,5 +102,26 @@ class UserProfileResponse(BaseModel):
 
     created_at: datetime
     updated_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+# ---------------------------------------------------------------------------
+# Vendor Status Response
+# ---------------------------------------------------------------------------
+
+class VendorStatusResponse(BaseModel):
+    """
+    Returned by GET /users/me/vendor-status and POST /users/request-vendor.
+    Contains all fields the frontend needs for the VendorCriteriaModal.
+    """
+
+    role: str
+    vendor_verified: bool
+    id_verification_status: str          # "none" | "pending" | "approved" | "rejected"
+    id_verification_url: Optional[str]   # None if no ID uploaded yet
+    is_verified: bool                    # email verified
+    phone_number: Optional[str]          # for phone check (auto-pass for now)
+    address: Optional[str]              # for address check (auto-pass for now)
 
     model_config = {"from_attributes": True}

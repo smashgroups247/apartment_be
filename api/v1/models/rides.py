@@ -60,7 +60,7 @@ class Ride(BaseTableModel):
     currency = Column(String(10), nullable=False, default="NGN")
     
     # Status
-    status = Column(Enum(RideStatus), default=RideStatus.published)
+    status = Column(Enum(RideStatus), default=RideStatus.pending_approval)
 
     # Admin notes (rejection reason, etc.)
     admin_notes = Column(Text, nullable=True)

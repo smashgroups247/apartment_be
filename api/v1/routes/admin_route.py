@@ -334,10 +334,31 @@ async def change_ride_status(
         admin_user=current_user,
         db=db,
     )
+    ride_dict = {
+        "id":                       ride.id,
+        "user_id":                  ride.user_id,
+        "ride_type":                ride.ride_type,
+        "seat_count":               ride.seat_count,
+        "door_count":               ride.door_count,
+        "pickup_location":          ride.pickup_location,
+        "pickup_latitude":          ride.pickup_latitude,
+        "pickup_longitude":         ride.pickup_longitude,
+        "adult_passenger_count":    ride.adult_passenger_count,
+        "children_passenger_count": ride.children_passenger_count,
+        "infant_passenger_count":   ride.infant_passenger_count,
+        "features":                 ride.features or [],
+        "price":                    ride.price,
+        "currency":                 ride.currency,
+        "status":                   ride.status,
+        "admin_notes":              ride.admin_notes,
+        "created_at":               ride.created_at,
+        "updated_at":               ride.updated_at,
+        "photos": [m.url for m in (ride.media or []) if m.media_type == "image"],
+    }
     return success_response(
         status_code=status.HTTP_200_OK,
         message=f"Ride status updated to '{schema.status}'.",
-        data=AdminRideResponse.model_validate(ride).model_dump(),
+        data=AdminRideResponse.model_validate(ride_dict).model_dump(),
     )
 
 
