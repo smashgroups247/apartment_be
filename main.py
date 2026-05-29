@@ -32,7 +32,7 @@ async def lifespan(app: FastAPI):
 
     await generator.aclose()
 
-app = FastAPI(lifespan=lifespan, title="FastAPI Boilerplate", version="1.0.0")
+app = FastAPI(lifespan=lifespan, title="SmashApartment-BE", version="1.0.0")
 
 
 MEDIA_DIR = "./media"
