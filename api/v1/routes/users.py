@@ -2,11 +2,14 @@
 Users Router
 File: api/v1/routes/users.py
 
-Endpoints for user account management:
-  GET  /users/me              – fetch current user profile
-  PUT  /users/update          – update profile fields
-  PUT  /users/change-password – change password
-  POST /users/upload-avatar   – upload profile picture
+Endpoints:
+  GET  /users/me               – fetch current user profile
+  PUT  /users/update           – update profile fields
+  PUT  /users/change-password  – change password
+  POST /users/upload-avatar    – upload profile picture
+  POST /users/upload-id        – upload ID verification document
+  GET  /users/me/vendor-status – get vendor eligibility fields
+  POST /users/request-vendor   – submit vendor verification request
 """
 
 from fastapi import APIRouter, Depends, File, UploadFile, status
@@ -20,6 +23,7 @@ from api.v1.schemas.users import (
     ChangePasswordRequest,
     UpdateProfileRequest,
     UserProfileResponse,
+    VendorStatusResponse,
 )
 from api.v1.services.users import user_service
 
@@ -40,10 +44,6 @@ users = APIRouter(prefix="/users", tags=["Users"])
 async def get_profile(
     current_user: User = Depends(get_current_user),
 ):
-    """
-    Returns the full profile of the currently authenticated user,
-    including phone_number and avatar_url.
-    """
     profile = user_service.get_profile(current_user)
     return success_response(
         status_code=status.HTTP_200_OK,
@@ -67,10 +67,6 @@ async def update_profile(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    Update one or more profile fields: first_name, last_name, username,
-    phone_number. Only provided fields are updated (partial update).
-    """
     updated_user = await user_service.update_profile(
         schema=schema, user=current_user, db=db
     )
@@ -96,10 +92,6 @@ async def change_password(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    Verify current_password, then hash and store new_password.
-    All existing sessions are invalidated on success.
-    """
     await user_service.change_password(
         schema=schema, user=current_user, db=db
     )
@@ -124,10 +116,6 @@ async def upload_avatar(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    Upload a profile avatar image. Accepted formats: jpg, jpeg, png, webp.
-    Maximum file size: 5MB. Returns the updated user profile with the new avatar_url.
-    """
     updated_user = await user_service.upload_avatar(
         file=file, user=current_user, db=db
     )
@@ -153,10 +141,6 @@ async def upload_id(
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
-    """
-    Upload an identity verification document. Accepted formats: jpg, jpeg, png, webp, pdf.
-    Maximum file size: 5MB. Returns the updated user profile with the new id_verification_url.
-    """
     updated_user = await user_service.upload_id_verification(
         file=file, user=current_user, db=db
     )
@@ -165,4 +149,58 @@ async def upload_id(
         message="ID verification document uploaded successfully.",
         data=UserProfileResponse.model_validate(updated_user).model_dump(),
     )
-
+
+
+# ---------------------------------------------------------------------------
+# GET /users/me/vendor-status
+# ---------------------------------------------------------------------------
+
+@users.get(
+    "/me/vendor-status",
+    status_code=status.HTTP_200_OK,
+    summary="Get vendor eligibility status for the current user",
+    response_model=None,
+)
+async def get_vendor_status(
+    current_user: User = Depends(get_current_user),
+):
+    """
+    Returns all fields the frontend needs to determine vendor eligibility
+    and show the correct state in the VendorCriteriaModal.
+    """
+    return success_response(
+        status_code=status.HTTP_200_OK,
+        message="Vendor status retrieved successfully.",
+        data=VendorStatusResponse.model_validate(current_user).model_dump(),
+    )
+
+
+# ---------------------------------------------------------------------------
+# POST /users/request-vendor
+# ---------------------------------------------------------------------------
+
+@users.post(
+    "/request-vendor",
+    status_code=status.HTTP_200_OK,
+    summary="Submit a vendor verification request",
+    response_model=None,
+)
+async def request_vendor(
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Sets the user's role to 'vendor' and id_verification_status to 'pending'.
+
+    Raises:
+        400 – if no ID document has been uploaded yet
+        409 – if the user is already a verified vendor
+    """
+    updated_user = await user_service.request_vendor_verification(
+        user=current_user, db=db
+    )
+    return success_response(
+        status_code=status.HTTP_200_OK,
+        message="Vendor verification request submitted. Awaiting admin approval.",
+        data=VendorStatusResponse.model_validate(updated_user).model_dump(),
+    )
